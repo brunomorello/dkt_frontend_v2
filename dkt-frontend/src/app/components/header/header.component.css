@@ -1,0 +1,11 @@
+header {
+    background: #1a4680;
+}
+
+header img {
+    position: relative;
+}
+
+.custom-navbar-collapse-icon {
+    color: #ffffff;
+}
