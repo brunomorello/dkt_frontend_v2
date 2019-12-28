@@ -1,0 +1,13 @@
+footer {
+    background: linear-gradient(#1a4699, #1a4680);
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 14px;
+    padding: 20px 80px;
+    position: fixed;
+    bottom: 0;
+}
+
+footer hr {
+    background: #C0C0C0;
+}
