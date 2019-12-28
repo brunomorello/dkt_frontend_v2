@@ -1,11 +1,23 @@
 header {
     background: #1a4680;
+    box-sizing: border-box;
+    border-bottom: #4fbff1 solid 7px;
 }
 
 header img {
     position: relative;
 }
 
+.dkt-header-img {
+    margin: 7px 22px;
+}
+
 .custom-navbar-collapse-icon {
     color: #ffffff;
+}
+
+.custom-navbar-menu-item {
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 18px;
 }
