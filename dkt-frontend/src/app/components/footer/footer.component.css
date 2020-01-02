@@ -33,3 +33,11 @@ footer p {
     margin: 5px;
 }
 
+.privacy-policy-modal-link {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.privacy-policy-modal-link:hover {
+    color: #ffffff;
+}
