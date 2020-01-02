@@ -2,7 +2,7 @@ footer {
     background: linear-gradient(#1a4680, #0a1c33);
     color: #ffffff;
     font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     padding: 40px 80px;
     position: fixed;
     bottom: 0;
@@ -12,20 +12,24 @@ footer hr {
     background: #707070;
 }
 
+footer p {
+    text-align: left;
+    margin: auto;
+}
+
 .custom-footer-mec-advertisement {
     text-align: center;
-} 
+}
 
 .custom-social-media {
-    right: 10px;
     padding: 7px;    
 }
 
 .custom-link-social-media {
-    display: inline-block;
+    float: right;
     /* border: #ffffff 2px solid;
     border-radius: 5px; */
-    padding: 5px;
-    margin: 0 5px;
+    padding: 2.5px;
+    margin: 5px;
 }
 
