@@ -15,6 +15,10 @@
     margin-top: 10px;
 }
 
+.custom-main-search-text {
+    color: #0a1c33;
+}
+
 .card {
     border-radius: 10px;
     width: 100%;
@@ -48,4 +52,6 @@
 
 .custom-primary-button {
     background-color: #3082ed;
+    padding: 15px 80px;
+    text-decoration-style: solid;
 }
