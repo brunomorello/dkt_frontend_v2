@@ -24,3 +24,28 @@
 .custom-main-search-card-position {
     position: absolute;
 }
+
+.custom-main-search-hr {
+    border-top: 1px solid #3082ed;
+}
+
+.card-title b {
+    color: #244278;
+}
+
+.custom-form-label {
+    font-size: large;
+}
+
+.custom-main-text-border {
+    border-bottom: 3.5px solid #4fbff1;
+    text-decoration: none;
+}
+
+.custom-main-search-label {
+    color: #244278;
+}
+
+.custom-primary-button {
+    background-color: #3082ed;
+}

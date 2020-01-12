@@ -1,22 +1,22 @@
 <div>  
   <dkt-header></dkt-header>
   <main>
-    <div class="mw-100 custom-main-search-menu">
+    <div class="custom-main-search-menu">
       <div class="custom-main-search-menu-bckg-img">
         <div class="container pt-5">
           <section id="custom-main-search-menu">
           
             <div>
               <h1>
-                <b>Encontre o curso certo<br/>para você</b>
+                <b>Encontre o <u class="custom-main-text-border">curso certo</u><br/>para você</b>
               </h1>
             
-              <p>
-                A Direkte te auxilia na hora de comparar e escolher sua pós-graduação ou MBA!
+              <p class="mt-4">
+                A Direkte te auxilia na hora de comparar e escolher <br/>sua pós-graduação ou MBA!
               </p>
             </div>
           
-            <div class="custom-main-search-card-position pt-3 px-5 mt-5 w-75">
+            <div class="custom-main-search-card-position pt-3 px-5 mt-3 w-75">
               <div class="card">
                 <form class="text-body pt-3 px-5" #formCourseSearch="ngForm" (ngSubmit)="performSearch(formCourseSearch)">
                   <div class="card-body">
@@ -24,54 +24,58 @@
             
                       <div class="form-check form-check-inline">
                         <h4 class="card-title">
-                          O que você está procurando?
+                          <b>O que você está procurando?</b>
                         </h4>
                       </div>
       
-                      <div class="form-check form-check-inline">
-                        <input 
-                          #postGraduation="ngModel" 
-                          [(ngModel)]="courseSearchForm.postGraduation" 
-                          type="checkbox" class="form-check-input" id="checkbox-post-graduation" name="checkbox-post-graduation">
-                        
-                        <label for="checkbox-post-graduation" class="form-check-label">
-                          Pós-graduação
-                        </label>
+                      <div class="float-right">
+                        <div class="form-check form-check-inline">
+                          <input 
+                            #postGraduation="ngModel" 
+                            [(ngModel)]="courseSearchForm.postGraduation" 
+                            type="checkbox" class="form-check-input" id="checkbox-post-graduation" name="checkbox-post-graduation">
+                          
+                          <label for="checkbox-post-graduation" class="form-check-label custom-form-label">
+                            Pós-graduação
+                          </label>
+                        </div>
+              
+                        <div class="form-check form-check-inline">
+                          <input 
+                            #mba="ngModel"
+                            [(ngModel)]="courseSearchForm.mba"
+                            type="checkbox" class="form-check-input" id="checkbox-mba" name="checkbox-mba">
+                          
+                            <label for="checkbox-mba" class="form-check-label custom-form-label">
+                            MBA
+                          </label>
+                        </div>
+              
+                        <div class="form-check form-check-inline">
+                          <input 
+                            #shortDuration="ngModel"
+                            [(ngModel)]="courseSearchForm.shortDuration"
+                            type="checkbox" class="form-check-input" id="checkbox-shortduration" name="checkbox-shortduration">
+                          
+                          <label for="checkbox-shortduration" class="form-check-label custom-form-label">
+                            Cursos de curta duração
+                          </label>
+                        </div>
                       </div>
             
-                      <div class="form-check form-check-inline">
-                        <input 
-                          #mba="ngModel"
-                          [(ngModel)]="courseSearchForm.mba"
-                          type="checkbox" class="form-check-input" id="checkbox-mba" name="checkbox-mba">
-                        
-                          <label for="checkbox-mba" class="form-check-label">
-                          MBA
-                        </label>
-                      </div>
+                      <hr class="custom-main-search-hr">
             
-                      <div class="form-check form-check-inline">
-                        <input 
-                          #shortDuration="ngModel"
-                          [(ngModel)]="courseSearchForm.shortDuration"
-                          type="checkbox" class="form-check-input" id="checkbox-shortduration" name="checkbox-shortduration">
-                        
-                        <label for="checkbox-shortduration" class="form-check-label">
-                          Cursos de curta duração
-                        </label>
-                      </div>
-            
-                      <hr class="my-4">
-            
-                      <div class="form-row">
+                      <div class="form-row mt-3">
                         <div class="form-group col-md-6">
-                          <label for="course-area-select">Escolha uma área de atuação </label>
-                          <small class="form-text text-muted">(ex: Direito)</small>
+                          <label for="course-area-select" class="custom-main-search-label">Escolha uma área de atuação </label>
+                          <small class="form-text form-check-inline text-muted ml-2">(ex: Direito)</small>
       
                           <select 
                             #mainCourse="ngModel"
                             [(ngModel)]="courseSearchForm.course.mainCourse"
-                            name="course-area-select" id="course-area-select" class="form-control" (load)=getSpecializationList($event)>
+                            (load)=getSpecializationList($event)
+                            name="course-area-select" id="course-area-select" 
+                            class="form-control custom-select">
                             
                             <option *ngFor="let course of courseList" value="{{course.courseId}}">{{course.name}}</option>
       
@@ -79,13 +83,14 @@
                         </div>
             
                         <div class="form-group col-md-6">
-                          <label for="course-specialization-select">Escolha uma especialização </label>
-                          <small class="form-text text-muted">(ex: Direito Comercial)</small>
+                          <label for="course-specialization-select" class="custom-main-search-label">Escolha uma especialização </label>
+                          <small class="form-text form-check-inline text-muted ml-2">(ex: Direito Comercial)</small>
       
                           <select 
                             #courseSpecialization="ngModel"
                             [(ngModel)]="courseSearchForm.course.specialization"
-                            name="course-specialization-select" name="course-specialization-select" id="course-specialization-select" class="form-control">
+                            name="course-specialization-select" id="course-specialization-select" 
+                            class="form-control custom-select">
                             
                             <option selected value="a">Especialização 1</option>
                             <option value="b">Especialização 2</option>
@@ -93,10 +98,10 @@
                         </div>
                       </div>
             
-                      <div class="form-row">
+                      <div class="form-row mt-3">
                         <div class="form-group col-md-6">
             
-                          <p>Escolha uma modalidade</p>
+                          <p class="custom-main-search-label">Escolha uma modalidade</p>
             
                           <div class="form-check form-check-inline">
                             <input type="checkbox" class="form-check-input" value="e" id="e">
@@ -122,14 +127,14 @@
                         </div>
             
                         <div class="form-group col-md-6">
-                          <label for="course-price-range">Quanto você gostaria de pagar no seu curso?</label>
-                          <input type="range" name="course-price-range" id="course-price-range" class="form-control-range">
+                          <label for="course-price-range" class="custom-main-search-label">Quanto você gostaria de pagar no seu curso?</label>
+                          <input type="range" name="course-price-range" id="course-price-range" class="custom-range">
                         </div>
                       </div>
             
-                      <div class="form-row">
+                      <div class="form-row mt-3">
                         <div class="form-group col-md-12">
-                          <button type="submit" class="btn btn-primary btn-lg">Pesquisar</button>
+                          <button type="submit" class="btn btn-primary btn-lg custom-primary-button">Pesquisar</button>
                         </div>
                       </div>
             
