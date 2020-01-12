@@ -1,0 +1,26 @@
+.custom-main-search-menu {
+    background: linear-gradient(to left,#1a4680, #0a1c33);
+    color: #ffffff;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.custom-main-search-menu-bckg-img {
+    background: url('../assets/img/banner2.png') no-repeat right;
+    right: 0;
+    left: 0;
+    height: 600px;
+}
+
+.custom-main-text {
+    margin-top: 10px;
+}
+
+.card {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.custom-main-search-card-position {
+    position: absolute;
+}
