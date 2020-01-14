@@ -1,3 +1,7 @@
+.custom-app-general-button {
+    border-radius: 10px;
+}
+
 .custom-main-search-menu {
     background: linear-gradient(to left,#1a4680, #0a1c33);
     color: #ffffff;
@@ -54,4 +58,47 @@
     background-color: #3082ed;
     padding: 15px 80px;
     text-decoration-style: solid;
+}
+
+.custom-next-step {
+    background-color: #f3f8fe;
+}
+
+
+.custom-customer-doubts-bck {
+    background-color: #ffffff;
+    color: #244278;
+    height: 750px;
+}
+
+#custom-customer-doubts-image {
+    border-radius: 10px;
+    box-shadow: 12px 10px 2px 0 #c8ecf9;
+    height: 590px;
+    width: 460px;
+}
+
+.custom-customer-doubts-text-area {
+    margin: auto;
+    padding: 10px;
+}
+
+.custom-customer-doubts-title {
+    font-size: 40px;
+}
+
+.custom-newletter-bck {
+    background-color: #3082ed;
+    color: #ffffff;
+    text-align: center;
+}
+
+.custom-newletter-button {
+    background-color: #4fbff1;
+    color: #ffffff;
+}
+
+.custom-newsletter-title {
+    font-size: 45px;
+    font-weight: bold;
 }
