@@ -235,9 +235,36 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .custom-next-step {
+    padding-top: 12%;
     background-color: #f3f8fe;
+    padding-bottom: 3%;
 }
 
+.custom-next-step-content {
+    background-color: #ffffff;
+}
+
+.custom-next-step-badge-item {
+    background-color: #ffffff;
+    border-radius: 200px 50px 50px 200px;
+    box-shadow: 5px 5px 10px #e5ebf6;
+    width: 500px;
+    margin: 30px;
+}
+
+.custom-next-step-badge-item-img {
+    height: 120px;
+    width: 120px;
+}
+
+.custom-next-step-badge-item-text {
+    color: #1a4680;
+    font-size: medium;
+}
+
+.custom-next-step-content {
+    display: block;
+}
 
 .custom-customer-doubts-bck {
     background-color: #ffffff;
@@ -259,6 +286,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 .custom-customer-doubts-title {
     font-size: 40px;
+    color: #244278;
 }
 
 .custom-newletter-bck {
