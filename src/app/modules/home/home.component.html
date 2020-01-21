@@ -18,7 +18,10 @@
         
             <div class="custom-main-search-card-position pt-3 px-5 mt-3 w-75">
             <div class="card">
-                <form class="text-body pt-3 px-5" #formCourseSearch="ngForm" (ngSubmit)="performSearch(formCourseSearch)">
+                <form 
+                    [formGroup]="mainFormSearch" 
+                    class="text-body pt-3 px-5"
+                    (ngSubmit)="performSearch()">
                 <div class="card-body">
                     <div class="form-group">
             
@@ -31,9 +34,11 @@
                     <div class="float-right">
                         <div class="form-check form-check-inline">
                         <input 
-                            #postGraduation="ngModel" 
-                            [(ngModel)]="courseSearchForm.postGraduation" 
-                            type="checkbox" class="form-check-input" id="checkbox-post-graduation" name="checkbox-post-graduation" required>
+                            type="checkbox"
+                            formControlName="postGraduation" 
+                            class="form-check-input" 
+                            id="checkbox-post-graduation" name="checkbox-post-graduation" checked="checked"
+                            >
                         
                         <label for="checkbox-post-graduation" class="form-check-label custom-form-label">
                             Pós-graduação
@@ -42,9 +47,10 @@
             
                         <div class="form-check form-check-inline">
                         <input 
-                            #mba="ngModel"
-                            [(ngModel)]="courseSearchForm.mba"
-                            type="checkbox" class="form-check-input" id="checkbox-mba" name="checkbox-mba">
+                            formControlName="mba"
+                            type="checkbox" 
+                            class="form-check-input" id="checkbox-mba" 
+                            name="checkbox-mba">
                         
                             <label for="checkbox-mba" class="form-check-label custom-form-label">
                             MBA
@@ -53,9 +59,10 @@
             
                         <div class="form-check form-check-inline">
                         <input 
-                            #shortDuration="ngModel"
-                            [(ngModel)]="courseSearchForm.shortDuration"
-                            type="checkbox" class="form-check-input" id="checkbox-shortduration" name="checkbox-shortduration">
+                            formControlName="shortDuration"
+                            type="checkbox" 
+                            class="form-check-input" 
+                            id="checkbox-shortduration" name="checkbox-shortduration">
                         
                         <label for="checkbox-shortduration" class="form-check-label custom-form-label">
                             Cursos de curta duração
@@ -71,13 +78,12 @@
                         <small class="form-text form-check-inline text-muted ml-2">(ex: Direito)</small>
     
                         <select 
-                            #mainCourse="ngModel"
-                            [(ngModel)]="courseSearchForm.course.mainCourse"
-                            (load)=getSpecializationList($event)
+                            formControlName="mainCourse"
+                            (ngChange)="getSpecializationList()"
                             name="course-area-select" id="course-area-select" 
                             class="form-control custom-select">
                             
-                            <option *ngFor="let course of courseList" value="{{course.courseId}}">{{course.name}}</option>
+                            <option *ngFor="let course of courseList" value="{{course.id}}">{{course.nome}}</option>
     
                         </select>
                         </div>
@@ -87,8 +93,7 @@
                         <small class="form-text form-check-inline text-muted ml-2">(ex: Direito Comercial)</small>
     
                         <select 
-                            #courseSpecialization="ngModel"
-                            [(ngModel)]="courseSearchForm.course.specialization"
+                            formControlName="courseSpecialization"
                             name="course-specialization-select" id="course-specialization-select" 
                             class="form-control custom-select">
                             
@@ -104,36 +109,49 @@
                         <p class="custom-main-search-label">Escolha uma modalidade</p>
             
                         <div class="form-check form-check-inline">
-                            <input type="checkbox" class="form-check-input" value="e" id="e">
-                            <label for="e" class="form-check-label">
+                            <input 
+                                formControlName="onSiteCourse"
+                                type="checkbox" 
+                                class="form-check-input" 
+                                id="course-on-site-checkbox" name="course-on-site-checkbox">
+                            <label for="course-on-site-checkbox" class="form-check-label">
                             Presencial
                             </label>
                         </div>
             
                         <div class="form-check form-check-inline ml-3">
-                            <input type="checkbox" class="form-check-input" value="f" id="f">
-                            <label for="f" class="form-check-label">
+                            <input 
+                                formControlName="semiOnSiteCourse"
+                                type="checkbox" 
+                                class="form-check-input" 
+                                id="course-semi-on-site-checkbox" name="course-semi-on-site-checkbox">
+                            <label for="course-semi-on-site-checkbox" class="form-check-label">
                             Semi-presencial
                             </label>
                         </div>
             
                         <div class="form-check form-check-inline ml-3"> 
-                            <input type="checkbox" class="form-check-input" value="g" id="g">
-                            <label for="g" class="form-check-label">
+                            <input 
+                                formControlName="onlineCourse"
+                                type="checkbox" 
+                                class="form-check-input"
+                                id="course-online-checkbox" name="course-online-checkbox">
+                            <label for="course-online-checkbox" class="form-check-label">
                             À distância
                             </label>
                         </div>
             
                         </div>
             
+                        <!-- TODO - BACKEND PENDING AN API TO PERFORM A SEARCH USING PRICE RANGE
                         <div class="form-group col-md-5 ml-5">
                         <label for="course-price-range" class="custom-main-search-label">Quanto você gostaria de pagar no seu curso?</label>
                         <input type="range" name="course-price-range" id="course-price-range" data-slider-min="1000" data-slider-max="5000" data-slider-step="100" data-slider-value="2000">
-                        <!--<input type="range" name="course-price-range" id="course-price-range" class="custom-range ml-3"> -->
+
                         <p class="custom-price-range-label text-center">
                             Até R$ 5000/mês
                         </p>
-                        </div>
+                        </div> -->
                     </div>
             
                     <div class="form-row mt-3">
