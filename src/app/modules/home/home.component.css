@@ -1,0 +1,306 @@
+.custom-app-general-button {
+    border-radius: 10px;
+}
+
+.custom-main-search-menu {
+    background: linear-gradient(to left,#1a4680, #0a1c33);
+    color: #ffffff;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.custom-main-search-menu-bckg-img {
+    background: url('../../../assets/img/banner2.png') no-repeat right;
+    right: 0;
+    left: 0;
+    height: 600px;
+}
+
+.custom-price-range-label {
+    color: #244278;
+    font-weight: bold;
+}
+
+/* Custom Range - https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/ */
+
+input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    background: transparent;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-ms-track {
+    width: 100%;
+    cursor: pointer;
+
+    /* Hides the slider so custom styles can be added */
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+/* Adding Style to input:range */
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid #000000;
+    height: 26px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+    margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 26px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+  /* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 26px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3082ed;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 26px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -14px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #3082ed;
+}
+
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3082ed;
+    border-radius: 1.3px;
+    border: 0.2px solid #001100;
+}
+
+input[type=range]::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 26px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: transparent;
+    border-color: transparent;
+    border-width: 16px 0;
+    color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+    background: #3082ed;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+
+input[type=range]::-ms-fill-upper {
+    background: #3082ed;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+
+input[type=range]::-ms-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 26px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+    background: #3071a9;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+    background: #3082ed;
+}
+
+/* end of custom range */
+
+#course-price-range .slider-selection {
+    background: #3082ed;
+}
+
+.custom-main-text {
+    margin-top: 10px;
+}
+
+.custom-main-search-text {
+    color: #0a1c33;
+}
+
+.card {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.custom-main-search-card-position {
+    position: absolute;
+}
+
+.custom-main-search-hr {
+    border-top: 1px solid #3082ed;
+}
+
+.card-title b {
+    color: #244278;
+}
+
+.custom-form-label {
+    font-size: large;
+}
+
+.custom-main-text-border {
+    border-bottom: 3.5px solid #4fbff1;
+    text-decoration: none;
+}
+
+.custom-main-search-label {
+    color: #244278;
+}
+
+.custom-primary-button {
+    background-color: #3082ed;
+    padding: 15px 80px;
+    text-decoration-style: solid;
+}
+
+.custom-next-step {
+    padding-top: 12%;
+    background-color: #f3f8fe;
+    padding-bottom: 3%;
+}
+
+.custom-next-step-content {
+    background-color: #ffffff;
+}
+
+.custom-next-step-badge-item {
+    background-color: #ffffff;
+    border-radius: 200px 50px 50px 200px;
+    box-shadow: 5px 5px 10px #e5ebf6;
+    width: 500px;
+    margin: 30px;
+}
+
+.custom-next-step-badge-item-img {
+    height: 120px;
+    width: 120px;
+}
+
+.custom-next-step-badge-item-text {
+    color: #1a4680;
+    font-size: medium;
+}
+
+.custom-next-step-content {
+    display: block;
+}
+
+.custom-customer-doubts-bck {
+    background-color: #ffffff;
+    color: #244278;
+    height: 750px;
+}
+
+#custom-customer-doubts-image {
+    border-radius: 10px;
+    box-shadow: 12px 10px 2px 0 #c8ecf9;
+    height: 590px;
+    width: 460px;
+}
+
+.custom-customer-doubts-text-area {
+    margin: auto;
+    padding: 10px;
+}
+
+.custom-customer-doubts-title {
+    font-size: 40px;
+    color: #244278;
+}
+
+.custom-newletter-bck {
+    background-color: #3082ed;
+    color: #ffffff;
+    text-align: center;
+}
+
+.custom-newletter-button {
+    background-color: #4fbff1;
+    color: #ffffff;
+}
+
+.custom-newsletter-title {
+    font-size: 45px;
+    font-weight: bold;
+}

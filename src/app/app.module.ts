@@ -7,12 +7,16 @@ import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from './components/footer/footer.component';
 
 import { FormsModule } from "@angular/forms";
+import { HomeComponent } from './modules/home/home.component';
+import { SearchCourseComponent } from './modules/search-course/search-course.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent,
+    SearchCourseComponent
   ],
   imports: [
     BrowserModule,
