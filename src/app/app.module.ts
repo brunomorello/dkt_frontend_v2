@@ -9,6 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from "@angular/forms";
 import { HomeComponent } from './modules/home/home.component';
 import { SearchCourseComponent } from './modules/search-course/search-course.component';
+import { HomeCustomerDoubtsFormEmailComponent } from './modules/home-customer-doubts-form-email/home-customer-doubts-form-email.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SearchCourseComponent } from './modules/search-course/search-course.com
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    SearchCourseComponent
+    SearchCourseComponent,
+    HomeCustomerDoubtsFormEmailComponent
   ],
   imports: [
     BrowserModule,

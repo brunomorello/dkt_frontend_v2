@@ -284,11 +284,6 @@ input[type=range]:focus::-ms-fill-upper {
     padding: 10px;
 }
 
-.custom-customer-doubts-title {
-    font-size: 40px;
-    color: #244278;
-}
-
 .custom-newletter-bck {
     background-color: #3082ed;
     color: #ffffff;
