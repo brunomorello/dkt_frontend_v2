@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from './components/footer/footer.component';
 
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HomeComponent } from './modules/home/home.component';
 import { SearchCourseComponent } from './modules/search-course/search-course.component';
 import { HomeCustomerDoubtsFormEmailComponent } from './modules/home-customer-doubts-form-email/home-customer-doubts-form-email.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,9 @@ import { HomeCustomerDoubtsFormEmailComponent } from './modules/home-customer-do
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
