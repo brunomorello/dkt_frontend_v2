@@ -6,3 +6,46 @@ main {
     border-bottom: 3.5px solid #4fbff1;
     text-decoration: none;
 }
+
+.custom-card-menu {
+    border-radius: 15px;
+}
+
+.custom-main-card-title {
+    color: #1a4680;
+    font-weight: bold;
+}
+
+.custom-card-menu-header {
+    background-color: #3082ed;
+    color: #ffffff;
+    margin-top: -1.25rem;
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
+    border-radius: 15px 15px 0 0;
+    padding: 1.25rem;
+}
+
+.custom-card-menu-header > h4 {
+    font-size: 22px;
+    text-align: center;
+}
+
+.custom-main-card-title > p {
+    font-size: 14px;
+    text-align: center;
+}
+
+.custom-main-card-body-title {
+    color: #3082ed;
+    font-size: 18px;
+}
+
+.custom-main-card-body-tip {
+    color: #c7c7c7;
+    font-size: 13px;
+}
+
+.custom-search-buttom {
+    border-radius: 8px;
+}
