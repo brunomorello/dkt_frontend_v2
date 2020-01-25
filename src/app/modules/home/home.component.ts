@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl } from "@angular/forms";
+import { FormGroup, FormControl, NgForm } from "@angular/forms";
 import { CourseService } from "../../services/course.service";
+import { CourseSpecializationService } from "../../services/course-specialization.service";
+import { Course } from 'src/app/models/Course';
+import { Specialization } from 'src/app/models/Specialization';
 
 @Component({
     selector: 'app-home',
@@ -9,43 +12,52 @@ import { CourseService } from "../../services/course.service";
 })
 export class HomeComponent implements OnInit {
 
-    mainFormSearch = new FormGroup({
-        postGraduation: new FormControl(true),
-        mba: new FormControl(),
-        shortDuration: new FormControl(),
-        mainCourse: new FormControl(),
-        courseSpecialization: new FormControl(),
-        onSiteCourse: new FormControl(true),
-        semiOnSiteCourse: new FormControl(true),
-        onlineCourse: new FormControl()
-    });
+    menuSearchOptions = {
+        postGraduation: true,
+        mba: false,
+        mainCourse: '1',
+        courseSpecialization: '1',
+        onSite: false,
+        semiOnSite: true,
+        onlineCourse: false
+    };
 
-    private courseList = [];
+    private courseList: Course[];
+    private specializationList: Specialization[];
+    private specializationListDump: Specialization[];
 
-    constructor(private courseService: CourseService) { }
+    constructor(private courseService: CourseService, private courseSpecService: CourseSpecializationService) { }
 
     ngOnInit() {
         
-        // this.courseService.getCourseList()
-        //     .subscribe(courseList => {
-        //         this.courseList = courseList;
-        //     });
+       this.courseService.getCourseList()
+            .subscribe(response => this.courseList = response.msg);
+
+        this.courseSpecService.getSpecializationList()
+            .subscribe(response => this.specializationListDump = response.msg);
+
+        this.courseSpecService.getSpecializationById("1")
+            .subscribe(response => this.specializationList = response.msg);
+            
+    }
+
+    loadSpecialization(event) {
+
+        //cleanup specializationList array
+        this.specializationList = [];
+
+        this.specializationListDump.forEach(spec => {
+            if(spec.id_atuacao == event.target.value)  
+                this.specializationList.push(spec);
+        });
 
     }
 
-    getSpecializationList() {
-        
-        console.log(this.mainFormSearch.get('mainCourse'));
-    
-      }
-    
-      performSearch() {
+    performSearch(menuSearchOptionsForm: NgForm) {
+        console.log(menuSearchOptionsForm);
+        console.log(this.menuSearchOptions);
 
-        if (this.mainFormSearch.valid) {
-            console.log(this.mainFormSearch.value);
-        } else {
-            console.log(`Fillout all fields`);
-        }
-    
-      }
+        if (menuSearchOptionsForm.invalid) return;
+        
+    }
 }

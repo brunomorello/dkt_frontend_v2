@@ -18,9 +18,9 @@
             <div class="custom-main-search-card-position pt-3 px-5 mt-3 w-75">
             <div class="card">
                 <form 
-                    [formGroup]="mainFormSearch" 
-                    class="text-body pt-3 px-5"
-                    (ngSubmit)="performSearch()">
+                    #menuSearchOptionsForm="ngForm"
+                    (ngSubmit)="performSearch(menuSearchOptionsForm)"
+                    class="text-body pt-3 px-5">
                 <div class="card-body">
                     <div class="form-group">
             
@@ -32,40 +32,27 @@
     
                     <div class="float-right">
                         <div class="form-check form-check-inline">
-                        <input 
-                            type="checkbox"
-                            formControlName="postGraduation" 
-                            class="form-check-input" 
-                            id="checkbox-post-graduation" name="checkbox-post-graduation" checked="checked"
-                            >
+                            <input 
+                                [(ngModel)]="menuSearchOptions.postGraduation"
+                                type="checkbox"
+                                class="form-check-input" 
+                                id="checkbox-post-graduation" name="checkbox-post-graduation" checked="checked">
                         
-                        <label for="checkbox-post-graduation" class="form-check-label custom-form-label">
-                            Pós-graduação
-                        </label>
+                            <label for="checkbox-post-graduation" class="form-check-label custom-form-label">
+                                Pós-graduação
+                            </label>
                         </div>
             
                         <div class="form-check form-check-inline">
-                        <input 
-                            formControlName="mba"
-                            type="checkbox" 
-                            class="form-check-input" id="checkbox-mba" 
-                            name="checkbox-mba">
+                            <input 
+                                [(ngModel)]="menuSearchOptions.mba"
+                                type="checkbox" 
+                                class="form-check-input"
+                                id="checkbox-mba" name="checkbox-mba">
                         
                             <label for="checkbox-mba" class="form-check-label custom-form-label">
-                            MBA
-                        </label>
-                        </div>
-            
-                        <div class="form-check form-check-inline">
-                        <input 
-                            formControlName="shortDuration"
-                            type="checkbox" 
-                            class="form-check-input" 
-                            id="checkbox-shortduration" name="checkbox-shortduration">
-                        
-                        <label for="checkbox-shortduration" class="form-check-label custom-form-label">
-                            Cursos de curta duração
-                        </label>
+                                MBA
+                            </label>
                         </div>
                     </div>
             
@@ -73,18 +60,17 @@
             
                     <div class="form-row mt-3">
                         <div class="form-group col-md-5 mr-5">
-                        <label for="course-area-select" class="custom-main-search-label">Escolha uma área de atuação </label>
-                        <small class="form-text form-check-inline text-muted ml-2">(ex: Direito)</small>
-    
-                        <select 
-                            formControlName="mainCourse"
-                            (ngChange)="getSpecializationList()"
-                            name="course-area-select" id="course-area-select" 
-                            class="form-control custom-select">
-                            
-                            <option *ngFor="let course of courseList" value="{{course.id}}">{{course.nome}}</option>
-    
-                        </select>
+                            <label for="course-area-select" class="custom-main-search-label">Escolha uma área de atuação </label>
+                            <small class="form-text form-check-inline text-muted ml-2">(ex: Direito)</small>
+        
+                            <select
+                                [(ngModel)]="menuSearchOptions.mainCourse"
+                                (input)="loadSpecialization($event)"
+                                name="course-area-select" id="course-area-select" 
+                                class="form-control custom-select">
+                                
+                                <option *ngFor="let course of courseList" value="{{course.id}}">{{course.nome}}</option>
+                            </select>
                         </div>
             
                         <div class="form-group col-md-5 ml-5">
@@ -92,12 +78,11 @@
                         <small class="form-text form-check-inline text-muted ml-2">(ex: Direito Comercial)</small>
     
                         <select 
-                            formControlName="courseSpecialization"
+                            [(ngModel)]="menuSearchOptions.courseSpecialization"
                             name="course-specialization-select" id="course-specialization-select" 
                             class="form-control custom-select">
                             
-                            <option selected value="a">Especialização 1</option>
-                            <option value="b">Especialização 2</option>
+                            <option *ngFor="let spec of specializationList" value="{{spec.id}}">{{spec.nome}}</option>
                         </select>
                         </div>
                     </div>
@@ -109,7 +94,7 @@
             
                         <div class="form-check form-check-inline">
                             <input 
-                                formControlName="onSiteCourse"
+                                [(ngModel)]="menuSearchOptions.onSite"
                                 type="checkbox" 
                                 class="form-check-input" 
                                 id="course-on-site-checkbox" name="course-on-site-checkbox">
@@ -120,7 +105,7 @@
             
                         <div class="form-check form-check-inline ml-3">
                             <input 
-                                formControlName="semiOnSiteCourse"
+                                [(ngModel)]="menuSearchOptions.semiOnSite"
                                 type="checkbox" 
                                 class="form-check-input" 
                                 id="course-semi-on-site-checkbox" name="course-semi-on-site-checkbox">
@@ -131,7 +116,7 @@
             
                         <div class="form-check form-check-inline ml-3"> 
                             <input 
-                                formControlName="onlineCourse"
+                                [(ngModel)]="menuSearchOptions.onlineCourse"
                                 type="checkbox" 
                                 class="form-check-input"
                                 id="course-online-checkbox" name="course-online-checkbox">
@@ -219,18 +204,17 @@
             </div>
 
             <div class="col">
-            <h2 class="mb-3 custom-customer-doubts-title mt-5"><u class="custom-main-text-border">Qual</u> seu próximo passo?</h2>
-            
-            <p class="mt-5">Buscando recolocação no mercado? Promoção no seu emprego atual? Melhorar sua qualificação? Mudança de carreira?
-                Independente do que te motiva a continuar seus estudos, estamos aqui pra te ajudar a alcançar o que deseja.
-            </p>
+                <h2 class="mb-3 mt-5 custom-customer-doubts-title"><u class="custom-main-text-border">Qual</u> seu próximo passo?</h2>
+                
+                <p class="mt-5">Buscando recolocação no mercado? Promoção no seu emprego atual? Melhorar sua qualificação? Mudança de carreira?
+                    Independente do que te motiva a continuar seus estudos, estamos aqui pra te ajudar a alcançar o que deseja.
+                </p>
 
-            <p class="mt-5">
-                Somos uma plataforma de busca e comparação de cursos de pós-graduação e MBA na cidade de São Paulo. Consolidamos as
-                informações dos cursos disponíveis para você comparar as opções (seja por custo, localização, instituição, etc.) e decidir qual
-                é a melhor para você!
-            </p>
-
+                <p class="mt-5">
+                    Somos uma plataforma de busca e comparação de cursos de pós-graduação e MBA na cidade de São Paulo. Consolidamos as
+                    informações dos cursos disponíveis para você comparar as opções (seja por custo, localização, instituição, etc.) e decidir qual
+                    é a melhor para você!
+                </p>
             </div>
         </div>
         </section>
