@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
     selector: 'dkt-header',
@@ -9,10 +9,10 @@ import { Component } from "@angular/core";
 })
 export class HeaderComponent {
 
-    displayMenuItens = false;
+    @Input()displayMenuItens = false;
 
-    hideMenuItens() {
-        this.displayMenuItens = !this.displayMenuItens;
+    refresh() {
+        location.reload();
     }
 
 }
