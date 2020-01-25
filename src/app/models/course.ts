@@ -1,17 +1,11 @@
 export class Course {
 
-    id = "";
-    nome = "";
-    createdAt = new Date();
-    updatedAt = new Date();
+    id: string;
+    nome: string;
 
-    constructor(
-        {id, nome, createdAt, updatedAt}: {id: string, nome: string, createdAt: Date, updatedAt: Date}
-    ) {
+    constructor(id: string, nome: string) {
         this.id = id;
         this.nome = nome;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
     }
 
 }
