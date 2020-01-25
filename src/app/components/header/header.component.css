@@ -40,3 +40,7 @@ header img {
     text-align: center;
     margin: 2px 6px;
 }
+
+.navbar-brand {
+    cursor: pointer;
+}
