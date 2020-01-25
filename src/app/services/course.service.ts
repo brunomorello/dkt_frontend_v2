@@ -1,7 +1,8 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { CourseApiResponse } from '../models/CourseApiResponse';
+import { CourseSearchApiResponse } from '../models/CourseSearchApiResponse';
 
 @Injectable({
     providedIn: 'root'
@@ -16,6 +17,18 @@ export class CourseService {
 
         return this.http.get<CourseApiResponse>(`${this.endpoint}/atuacao/listarTodos`);
     
+    }
+
+    searchCourse(searchOptions): Observable<CourseSearchApiResponse> {
+
+        const httpHeaders = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            })
+        };
+
+        return this.http.post<CourseSearchApiResponse>(`${this.endpoint}/curso/listarTodosPesquisa`, searchOptions, httpHeaders);
+
     }
 
 }
