@@ -1,5 +1,5 @@
-<dkt-header></dkt-header>
-<main>
+<dkt-header [displayMenuItens]="displayHeaderMenuItens"></dkt-header>
+<main *ngIf="displayDefaultHome">
     <div class="custom-main-search-menu">
     <div class="custom-main-search-menu-bckg-img">
         <div class="container pt-5">
@@ -281,5 +281,6 @@
     </div>
     </div>
 </main>
-
+<app-search-course *ngIf="displaySearch"></app-search-course>
 <dkt-footer></dkt-footer>
+<router-outlet></router-outlet>

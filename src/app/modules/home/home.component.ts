@@ -4,6 +4,7 @@ import { CourseService } from "../../services/course.service";
 import { CourseSpecializationService } from "../../services/course-specialization.service";
 import { Course } from 'src/app/models/Course';
 import { Specialization } from 'src/app/models/Specialization';
+import { HeaderComponent } from "../../components/header/header.component";
 
 @Component({
     selector: 'app-home',
@@ -21,6 +22,10 @@ export class HomeComponent implements OnInit {
         semiOnSite: true,
         onlineCourse: false
     };
+
+    displaySearch = false;
+    displayDefaultHome = true;
+    displayHeaderMenuItens = true;
 
     private courseList: Course[];
     private specializationList: Specialization[];
@@ -58,6 +63,10 @@ export class HomeComponent implements OnInit {
         console.log(this.menuSearchOptions);
 
         if (menuSearchOptionsForm.invalid) return;
+
+        this.displaySearch = true;
+        this.displayDefaultHome = false;
+        this.displayHeaderMenuItens = false;
         
     }
 }
