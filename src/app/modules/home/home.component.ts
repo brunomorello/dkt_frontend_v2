@@ -67,6 +67,12 @@ export class HomeComponent implements OnInit {
         this.displaySearch = true;
         this.displayDefaultHome = false;
         this.displayHeaderMenuItens = false;
+
+        let resp = this.courseService.searchCourse({
+            'test': '1'
+        });
+
+        resp.subscribe(response => console.log(response));
         
     }
 }
