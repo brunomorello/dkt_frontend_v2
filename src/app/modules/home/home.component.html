@@ -10,12 +10,12 @@
                 <b>Encontre o <u class="custom-main-text-border">curso certo</u><br/>para você</b>
             </h1>
             
-            <p class="mt-4">
-                A Direkte te auxilia na hora de comparar e escolher <br/>sua pós-graduação ou MBA!
+            <p class="mt-4 custom-main-text-sm">
+                Compare e Escolha sua Pós ou MBA
             </p>
             </div>
         
-            <div class="custom-main-search-card-position pt-3 px-5 mt-3 w-75">
+            <div class="custom-main-search-card-position pt-3 px-5 mt-3">
             <div class="card">
                 <form 
                     #menuSearchOptionsForm="ngForm"
@@ -25,12 +25,12 @@
                     <div class="form-group">
             
                     <div class="form-check form-check-inline">
-                        <h4 class="card-title">
-                        <b>O que você está procurando?</b>
+                        <h4 class="card-title" id="custom-card-title-mobile">
+                            <b>O que você está procurando?</b>
                         </h4>
                     </div>
     
-                    <div class="float-right">
+                    <div class="custom-input-course-type">
                         <div class="form-check form-check-inline">
                             <input 
                                 [(ngModel)]="menuSearchOptions.postGraduation"
@@ -59,7 +59,7 @@
                     <hr class="custom-main-search-hr">
             
                     <div class="form-row mt-3">
-                        <div class="form-group col-md-5 mr-5">
+                        <div class="form-group col-md-5">
                             <label for="course-area-select" class="custom-main-search-label">Escolha uma área de atuação </label>
                             <small class="form-text form-check-inline text-muted ml-2">(ex: Direito)</small>
         
@@ -73,22 +73,22 @@
                             </select>
                         </div>
             
-                        <div class="form-group col-md-5 ml-5">
-                        <label for="course-specialization-select" class="custom-main-search-label">Escolha uma especialização </label>
-                        <small class="form-text form-check-inline text-muted ml-2">(ex: Direito Comercial)</small>
-    
-                        <select 
-                            [(ngModel)]="menuSearchOptions.courseSpecialization"
-                            name="course-specialization-select" id="course-specialization-select" 
-                            class="form-control custom-select">
-                            
-                            <option *ngFor="let spec of specializationList" value="{{spec.id}}">{{spec.nome}}</option>
-                        </select>
+                        <div class="form-group col-md-5">
+                            <label for="course-specialization-select" class="custom-main-search-label">Escolha uma especialização </label>
+                            <small class="form-text form-check-inline text-muted ml-2">(ex: Direito Comercial)</small>
+        
+                            <select 
+                                [(ngModel)]="menuSearchOptions.courseSpecialization"
+                                name="course-specialization-select" id="course-specialization-select" 
+                                class="form-control custom-select">
+                                
+                                <option *ngFor="let spec of specializationList" value="{{spec.id}}">{{spec.nome}}</option>
+                            </select>
                         </div>
                     </div>
             
                     <div class="form-row mt-3">
-                        <div class="form-group col-md-5 mr-5">
+                        <div class="form-group col-md-5">
             
                         <p class="custom-main-search-label">Escolha uma modalidade</p>
             
@@ -162,7 +162,7 @@
     <div class="container">
         <section id="custom-next-step">
         <div class="row h-100">
-            <div class="col my-auto px-3">
+            <div class="col my-auto px-3 hide-mobile">
             <div class="custom-next-step-badge-item">
                 <div class="row">
                 <div class="col-3">
@@ -170,7 +170,7 @@
                 </div>
                 <div class="col-9 my-auto">
                     <div class="custom-next-step-badge-item-text">
-                    Busca rápida de cursos de MBA e pós-<br/>graduação, 100% grátis
+                    Busca rápida de cursos de MBA e pós-graduação, 100% grátis
                     </div>
                 </div>
                 </div>
@@ -183,7 +183,7 @@
                 </div>
                 <div class="col-9 my-auto">
                     <div class="custom-next-step-badge-item-text">
-                    Encontre a melhor opção para você e que<br/> cabe no seu bolso
+                    Encontre a melhor opção para você e que cabe no seu bolso
                     </div>
                 </div>
                 </div>
@@ -196,7 +196,7 @@
                 </div>
                 <div class="col-9 my-auto">
                     <div class="custom-next-step-badge-item-text">
-                    Fácil comparação de cursos, com as<br/> informações que você precisa em um só lugar
+                    Fácil comparação de cursos, com as informações que você precisa em um só lugar
                     </div>
                 </div>
                 </div>
@@ -204,18 +204,60 @@
 
             </div>
 
-            <div class="col">
+            <div class="col mt-3">
                 <h2 class="mb-3 mt-5 custom-customer-doubts-title"><u class="custom-main-text-border">Qual</u> seu próximo passo?</h2>
                 
-                <p class="mt-5">Buscando recolocação no mercado? Promoção no seu emprego atual? Melhorar sua qualificação? Mudança de carreira?
+                <p class="mt-5 custom-customer-doubts-paragraph">Buscando recolocação no mercado? Promoção no seu emprego atual? Melhorar sua qualificação? Mudança de carreira?
                     Independente do que te motiva a continuar seus estudos, estamos aqui pra te ajudar a alcançar o que deseja.
                 </p>
 
-                <p class="mt-5">
+                <p class="mt-5 custom-customer-doubts-paragraph">
                     Somos uma plataforma de busca e comparação de cursos de pós-graduação e MBA na cidade de São Paulo. Consolidamos as
                     informações dos cursos disponíveis para você comparar as opções (seja por custo, localização, instituição, etc.) e decidir qual
                     é a melhor para você!
                 </p>
+            </div>
+
+            <div class="col my-auto px-3 hide-desktop">
+                <div class="custom-next-step-badge-item">
+                    <div class="row">
+                    <div class="col-3">
+                        <img class="custom-next-step-badge-item-img" src="assets/img/layout/grupo_358.png" alt="image1">
+                    </div>
+                    <div class="col-9 my-auto">
+                        <div class="custom-next-step-badge-item-text">
+                        Busca rápida de cursos de MBA e pós-graduação, 100% grátis
+                        </div>
+                    </div>
+                    </div>
+                </div>
+    
+                <div class="custom-next-step-badge-item">
+                    <div class="row">
+                    <div class="col-3">
+                        <img class="custom-next-step-badge-item-img" src="assets/img/layout/grupo_359.png" alt="image2">
+                    </div>
+                    <div class="col-9 my-auto">
+                        <div class="custom-next-step-badge-item-text">
+                        Encontre a melhor opção para você e que cabe no seu bolso
+                        </div>
+                    </div>
+                    </div>
+                </div>
+    
+                <div class="custom-next-step-badge-item hide-desktop">
+                    <div class="row">
+                    <div class="col-3">
+                        <img class="custom-next-step-badge-item-img" src="assets/img/layout/grupo_360.png" alt="image3">
+                    </div>
+                    <div class="col-9 my-auto">
+                        <div class="custom-next-step-badge-item-text">
+                        Fácil comparação de cursos, com as informações que você precisa em um só lugar
+                        </div>
+                    </div>
+                    </div>
+                </div>
+    
             </div>
         </div>
         </section>
@@ -226,19 +268,21 @@
     <div class="container">
         <section id="custom-customer-doubts">
         <div class="row h-100">
-            <div class="col my-auto px-3">
+            <div class="col my-auto p-3">
 
             <h2 class="mb-3 custom-customer-doubts-title">Está com dúvida sobre qual <br/><u class="custom-main-text-border">curs</u>o fazer?</h2>
+
+            <img src="assets/img/layout/grupo_176.png" alt="" id="custom-customer-doubts-image-mobile">
     
-            <p class="my-5">A gente te ajuda!</p>
+            <p class="my-5 custom-customer-doubts-bck-paragraph">A gente te ajuda!</p>
             
-            <p>
+            <p class="custom-customer-doubts-bck-paragraph">
                 É normal não ter certeza sobre qual curso escolher entre tantas áreas e opções.
                 Por isso, nossa equipe
                 está à disposição para entender melhor seu perfil e te ajudar nessa decisão.
             </p>
     
-            <p class="mt-5">
+            <p class="mt-5 custom-customer-doubts-bck-paragraph">
                 <button class="btn btn-primary btn-lg px-5 py-3 custom-app-general-button" data-toggle="modal" data-target="#customer-form-email">
                 Fale com a gente
                 </button>
@@ -247,7 +291,7 @@
 
             <app-home-customer-doubts-form-email></app-home-customer-doubts-form-email>
 
-            <div class="col ml-5">
+            <div class="col ml-5 custom-customer-doubts-image-col">
             <div class="py-5">
                 <img src="assets/img/layout/grupo_176.png" id="custom-customer-doubts-image" alt="image">
             </div>
@@ -261,24 +305,40 @@
     <div class="custom-newletter-bck">
     <div class="container">
 
-        <section class="custom-newsletter p-5">
-        <h2 class="custom-newsletter-title">
-            Fique por dentro das novidades do mercado!
-        </h2>
+        <section class="custom-newsletter p-5 hide-desktop">
+            <h2 class="custom-newsletter-title">
+                Fique por dentro das novidades do mercado!
+            </h2>
 
-        <p class="pt-3">
-            Receba notícias sobre carreira, o que está em alta no mercado de trabalho e informações sobre <br/>novos cursos disponíveis.
-        </p>
+            <p class="pt-3">
+                Receba notícias sobre carreira, o que está em alta no mercado de trabalho e informações sobre <br/>novos cursos disponíveis.
+            </p>
 
-
-        <div class="input-group input-group-lg p-5">
-            <input type="email" name="customer-email-newsletter" id="customer-email-newsletter" class="form-control" placeholder="Digite seu endereço de email" aria-label="Digite seu endereço de email" aria-describedby="email-newsletter">
-            <div class="input-group-append">
-            <button class="btn btn-lg custom-newletter-button" type="button" id="email-newsletter">Cadastre-se</button>
+            <div class="input-group input-group-lg p-5">
+                <input type="email" name="customer-email-newsletter" id="customer-email-newsletter" class="form-control" placeholder="Digite seu endereço de email" aria-label="Digite seu endereço de email" aria-describedby="email-newsletter">
+                <div class="input-group-append">
+                    <button class="btn btn-lg custom-newletter-button" type="button" id="email-newsletter">Cadastre-se</button>
+                </div>
             </div>
-        </div>
-
         </section>
+
+        <section class="custom-newsletter p-5 hide-mobile">
+            <h2 class="custom-newsletter-title">
+                Fique por dentro das novidades do mercado!
+            </h2>
+
+            <p class="pt-3">
+                Receba notícias sobre carreira, o que está em alta no mercado de trabalho e informações sobre <br/>novos cursos disponíveis.
+            </p>
+
+            <div class="input-group input-group-sm mb-3">
+                <input type="email" name="customer-email-newsletter" id="customer-email-newsletter" class="form-control" placeholder="Digite seu endereço de email" aria-label="Digite seu endereço de email" aria-describedby="email-newsletter">
+                <div class="input-group-append">
+                    <button class="btn btn-sm custom-newletter-button" type="button" id="email-newsletter">Cadastre-se</button>
+                </div>
+            </div>
+        </section>
+        
     </div>
     </div>
 </main>

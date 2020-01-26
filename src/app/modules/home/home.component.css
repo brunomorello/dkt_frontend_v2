@@ -207,6 +207,10 @@ input[type=range]:focus::-ms-fill-upper {
     position: absolute;
 }
 
+.custom-input-course-type {
+    float: right;
+}
+
 .custom-main-search-hr {
     border-top: 1px solid #3082ed;
 }
@@ -244,6 +248,10 @@ input[type=range]:focus::-ms-fill-upper {
     background-color: #ffffff;
 }
 
+#custom-next-step {
+    color: #244278;
+}
+
 .custom-next-step-badge-item {
     background-color: #ffffff;
     border-radius: 200px 50px 50px 200px;
@@ -279,6 +287,10 @@ input[type=range]:focus::-ms-fill-upper {
     width: 460px;
 }
 
+#custom-customer-doubts-image-mobile {
+    display: none;
+}
+
 .custom-customer-doubts-text-area {
     margin: auto;
     padding: 10px;
@@ -300,15 +312,186 @@ input[type=range]:focus::-ms-fill-upper {
     font-weight: bold;
 }
 
+.hide-mobile {
+    display: none;
+}
+
+.hide-desktop {
+    display: block;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (max-width: 576px) { 
 
     h1 {
-        font-size: 15px;
+        font-size: 20px;
+    }
+
+    .custom-main-search-menu {
+        height: 280px;
+        width: auto;
     }
 
     .custom-main-search-menu-bckg-img {
         background-image: url('../../../assets/img/layout/banner2_small_devices.png');
+        height: auto;
+        position: relative;
     }
 
+    .custom-main-search-menu-bckg-img > .container-sm {
+        padding-top: 1rem !important;
+    }
+
+    .custom-main-text-sm {
+        font-size: 12px;
+    }
+
+    .custom-main-text-border {
+        border-bottom: 2px solid #4fbff1;
+    }
+
+    .custom-main-search-card-position {
+        padding-left: 0.25rem !important;
+        padding-right: 0.25rem !important;
+        padding-top: 0.25rem !important;
+        margin-top: 0.25rem !important;
+        width: auto;
+    }
+
+    .card {
+        font-size: 12px;
+        width: 96%;
+    }
+
+    .card > input {
+        font-size: 12px;
+    }
+
+    .card-title {
+        font-size: 15px;
+    }
+
+    .custom-form-label {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .custom-input-course-type {
+        float: none;
+    }
+
+    .card-body > .form-group {
+        text-align: left;
+    }
+
+    .form-group > small {
+        margin-left: .25rem !important;
+    }
+
+    .form-check > .form-check-inline > .float-right {
+        float: none;
+    }
+
+    .custom-main-search-label-mobile {
+        margin-right: 0.23rem !important;
+    }
+
+    .custom-main-search-card-position > .card > form {
+        padding-left: .25rem !important;
+        padding-right: .25rem !important;
+        padding-top: .25rem !important;
+    }
+
+    .custom-next-step {
+        padding-top: 100%;
+        font-size: 13px;
+    }
+
+    .custom-next-step-badge-item {
+        margin: 11px 2px 11px 2px;
+        padding: 2px;
+        width: 324px;
+    }
+
+    .custom-next-step-badge-item-img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .custom-next-step-badge-item-text {
+        font-size: 12px;
+    }
+
+    .custom-customer-doubts-bck {
+        font-size: 13px;
+        height: auto;
+    }
+
+    .custom-customer-doubts-bck-paragraph {
+        margin-top: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .custom-customer-doubts-bck-paragraph > button {
+        padding: 10px auto;
+    }
+
+    #custom-customer-doubts-image-mobile {
+        display: block;
+        border-radius: 10px;
+        box-shadow: 8px 8px 2px 0 #c8ecf9;
+        margin: 25px auto;
+        width: 200px;
+        height: 280px;
+    }
+
+    .custom-customer-doubts-title {
+        margin-top: .25rem !important;
+        font-size: 25px;
+    }
+
+    .custom-customer-doubts-paragraph {
+        margin-top: .25rem !important;
+    }
+
+    .custom-customer-doubts-image-col {
+        display: none;
+    }
+
+    .custom-newletter-bck {
+        font-size: 13px;
+    }
+
+    .custom-newsletter {
+        padding: 0.25rem !important;
+    }
+    
+    .custom-newsletter-title {
+        font-size: 23px;
+        margin-top: 15px;
+    }
+
+    #customer-email-newsletter {
+        width: 50%;
+    }
+
+    .input-group-append {
+        width: 35%;
+    }
+
+    dkt-footer {
+        /* display: none; */
+    }
+
+    .custom-primary-button {
+        font-size: 12px;
+
+    }
+    .hide-desktop {
+        display: none;
+    }
+
+    .hide-mobile {
+        display: block;
+    }
 }
