@@ -282,6 +282,14 @@
     </div>
     </div>
 </main>
-<app-search-course *ngIf="displaySearch" [menuSearchOptions]="menuSearchOptions" [searchCouseResult]="searchCouseResult"></app-search-course>
+
+<app-search-course *ngIf="displaySearch" 
+    [menuSearchOptions]="menuSearchOptions" 
+    [searchCouseResult]="searchCouseResult"
+    [courseList]="courseList"
+    [specializationList]="specializationList"
+    [specializationListDump]="specializationListDump">
+</app-search-course>
+
 <dkt-footer></dkt-footer>
 <router-outlet></router-outlet>
