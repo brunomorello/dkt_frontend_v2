@@ -57,4 +57,9 @@ header img {
         height: 30px;
     }
 
+    .navbar-expand-sm {
+        padding-left: 0.25rem !important;
+        padding-right: 0.25rem !important;
+    }
+
 }
