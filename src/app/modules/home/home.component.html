@@ -65,7 +65,7 @@
         
                             <select
                                 [(ngModel)]="menuSearchOptions.mainCourse"
-                                (input)="loadSpecialization($event)"
+                                (change)="loadSpecialization($event)"
                                 name="course-area-select" id="course-area-select" 
                                 class="form-control custom-select">
                                 
@@ -114,7 +114,8 @@
                             </label>
                         </div>
             
-                        <div class="form-check form-check-inline ml-3"> 
+                        <!-- To be implemented - pending adjustments on backend -->
+                        <!-- <div class="form-check form-check-inline ml-3"> 
                             <input 
                                 [(ngModel)]="menuSearchOptions.onlineCourse"
                                 type="checkbox" 
@@ -123,7 +124,7 @@
                             <label for="course-online-checkbox" class="form-check-label">
                             À distância
                             </label>
-                        </div>
+                        </div> -->
             
                         </div>
             

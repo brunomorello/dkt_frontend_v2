@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
         mba: false,
         mainCourse: '1',
         courseSpecialization: '1',
-        onSite: false,
+        onSite: true,
         semiOnSite: true,
         onlineCourse: false
     };
@@ -59,8 +59,6 @@ export class HomeComponent implements OnInit {
     }
 
     performSearch(menuSearchOptionsForm: NgForm) {
-        console.log(menuSearchOptionsForm);
-        console.log(this.menuSearchOptions);
 
         if (menuSearchOptionsForm.invalid) return;
 
@@ -68,11 +66,31 @@ export class HomeComponent implements OnInit {
         this.displayDefaultHome = false;
         this.displayHeaderMenuItens = false;
 
-        let resp = this.courseService.searchCourse({
-            'test': '1'
-        });
+        console.log(this.menuSearchOptions);
 
-        resp.subscribe(response => console.log(response));
+        
+        let pesquisaObj = {
+            'pesquisa': {
+                'atuacao': this.courseList[this.menuSearchOptions.mainCourse].nome,
+                'mba': this.menuSearchOptions.mba,
+                'pos': this.menuSearchOptions.postGraduation,
+                'especializacao': this.specializationListDump[this.menuSearchOptions.courseSpecialization].nome,
+                'modalidade': [],
+                'pagina': ''
+            }
+        }
+        
+        if (this.menuSearchOptions.onSite) {
+            pesquisaObj.pesquisa.modalidade.push(1);
+        }
+
+        if (this.menuSearchOptions.semiOnSite) {
+            pesquisaObj.pesquisa.modalidade.push(2);
+        }
+
+        this.courseService.searchCourse(pesquisaObj).subscribe(response => {
+            console.log(response);
+        });
         
     }
 }
