@@ -196,13 +196,13 @@
             <div class="card shadow p-3 mb-5 bg-white rounded">
               <div class="card-body">
                 <div class="custom-card-image-title">
-                  <img src="assets/img/college/PUC.jpg" alt="puc">
+                  <img src="{{courseResult.instituicao.urlLogo}}" alt="puc">
                 </div>
 
                 <hr>
 
                 <h3 class="custom-main-card-body-title">Faculdade</h3>
-                <p>PUC-São Paulo</p>
+                <p>{{courseResult.instituicao.nome}}</p>
 
                 <hr>
 
@@ -237,7 +237,7 @@
                 <hr> -->
 
                 <div class="mx-auto ">
-                  <button type="button" class="btn btn-primary btn-lg custom-search-buttom">Ver detalhes</button>
+                  <a href="{{courseResult.cursoUrlManual.linkCurso}}" target="_blank" class="btn btn-primary btn-lg custom-search-buttom">Ver detalhes</a>
                 </div>
 
               </div>
