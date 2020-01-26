@@ -25,17 +25,25 @@
               </p>
             </div>
 
-            <form>
+            <form #menuSearchOptionsForm="ngForm">
               <div class="custom-main-card-body">
                 <h3 class="custom-main-card-body-title pt-3">Tipo de curso</h3>
 
                 <div class="form-check">
-                  <input type="checkbox" class="form-check-input" name="checkbox-post-graduation" id="checkbox-post-graduation">
+                  <input 
+                    [(ngModel)]="menuSearchOptions.postGraduation"
+                    type="checkbox"
+                    class="form-check-input" 
+                    name="checkbox-post-graduation" id="checkbox-post-graduation">
                   <label for="checkbox-post-graduation" class="form-check-label">Pós-graduação</label>
                 </div>
 
                 <div class="form-check">
-                  <input type="checkbox" class="form-check-input" name="checkbox-mba" id="checkbox-mba">
+                  <input 
+                    [(ngModel)]="menuSearchOptions.mba"
+                    type="checkbox" 
+                    class="form-check-input" 
+                    name="checkbox-mba" id="checkbox-mba">
                   <label for="checkbox-mba" class="form-check-label">MBA</label>
                 </div>
               </div>
@@ -44,20 +52,24 @@
 
               <h3 class="custom-main-card-body-title">Área de atuação</h3>
 
-              <select name="course-area-select" id="course-area-select" class="custom-select" required>
-                <option selected disabled value="">Selecione</option>
-                <option value="b">Curso 1</option>
-                <option value="c">Curso 2</option>
+              <select 
+                [(ngModel)]="menuSearchOptions.mainCourse"
+                name="course-area-select" id="course-area-select" 
+                class="custom-select" required>
+
+                <option *ngFor="let course of courseList" value="{{course.id}}">{{course.nome}}</option>
               </select>
 
               <hr>
 
               <h3 class="custom-main-card-body-title">Especialização</h3>
 
-              <select name="ccourse-specialization-select" id="ccourse-specialization-select" class="custom-select" required>
-                <option selected disabled value="">Selecione</option>
-                <option value="b">Especialização 1</option>
-                <option value="c">Especialização 2</option>
+              <select 
+                [(ngModel)]="menuSearchOptions.courseSpecialization"
+                name="ccourse-specialization-select" id="ccourse-specialization-select" 
+                class="custom-select" required>
+                
+                <option *ngFor="let spec of specializationList" value="{{spec.id}}">{{spec.nome}}</option>
               </select>
 
               <hr>
@@ -65,16 +77,24 @@
               <h3 class="custom-main-card-body-title">Modalidade</h3>
 
               <div class="form-check">
-                <input type="checkbox" class="form-check-input" name="course-on-site-checkbox" id="course-on-site-checkbox">
+                <input 
+                  [(ngModel)]="menuSearchOptions.onSite"
+                  type="checkbox" 
+                  class="form-check-input" 
+                  name="course-on-site-checkbox" id="course-on-site-checkbox">
                 <label for="course-on-site-checkbox" class="form-check-label">Presencial</label>
               </div>
 
               <div class="form-check">
-                <input type="checkbox" class="form-check-input" name="course-semi-on-site-checkbox" id="course-semi-on-site-checkbox">
+                <input 
+                  [(ngModel)]="menuSearchOptions.semiOnSite"
+                  type="checkbox" 
+                  class="form-check-input" 
+                  name="course-semi-on-site-checkbox" id="course-semi-on-site-checkbox">
                 <label for="course-semi-on-site-checkbox" class="form-check-label">Semi-presencial</label>
               </div>
 
-              <div class="form-check">
+              <!-- <div class="form-check">
                 <input type="checkbox" class="form-check-input" name="course-online-checkbox" id="course-online-checkbox">
                 <label for="course-online-checkbox" class="form-check-label">À distância</label>
               </div>
@@ -137,7 +157,7 @@
                 <option selected disabled value="">Selecione</option>
                 <option value="b">FIAP</option>
                 <option value="c">PUC-SP</option>
-              </select>
+              </select> -->
 
               <div class="mx-auto pt-5">
                 <button type="button" class="btn btn-outline-primary btn-lg mr-3">Limpar Filtros</button>
@@ -162,68 +182,16 @@
         <div class="row mt-3">
           <div class="col-sm">
             <p>
-              16 resultados encontrados
+              {{searchCouseResult.msg.length}} resultados encontrados
             </p>
           </div>
         </div>
 
-        <div class="row mt-3">
+        <!-- Display Values only if search returned results -->
+        <div class="row mt-3" *ngIf="searchCouseResult.msg.length > 0">
 
-          <div class="col-sm">
-
-            <div class="card shadow p-3 mb-5 bg-white rounded">
-              <div class="card-body">
-                <div class="custom-card-image-title">
-                  <img src="assets/img/college/PUC.jpg" alt="puc">
-                </div>
-
-                <hr>
-
-                <h3 class="custom-main-card-body-title">Faculdade</h3>
-                <p>PUC-São Paulo</p>
-
-                <hr>
-
-                <h3 class="custom-main-card-body-title">Curso</h3>
-                <p>Pós-Graduação - Direito Comercial</p>
-
-                <hr>
-
-                <h3 class="custom-main-card-body-title">Modalidade</h3>
-                <p>Presencial</p>
-
-                <hr>
-
-                <h3 class="custom-main-card-body-title">Período</h3>
-                <p>Noturno - Quartas e Sexta das 19h às 22h40</p>
-
-                <hr>
-
-                <h3 class="custom-main-card-body-title">Duração</h3>
-                <p>1 ano e meio</p>
-
-                <hr>
-
-                <h3 class="custom-main-card-body-title">Investimento Mensal</h3>
-                <p>R$ 1.373,75</p>
-
-                <hr>
-
-                <h3 class="custom-main-card-body-title">Localização</h3>
-                <p>Moema</p>
-
-                <hr>
-
-                <div class="mx-auto ">
-                  <button type="button" class="btn btn-primary btn-lg custom-search-buttom">Ver detalhes</button>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-sm">
+          <!-- Iterate through result list -->
+          <div class="col-sm" *ngFor="let courseResult of searchCouseResult.msg">
 
             <div class="card shadow p-3 mb-5 bg-white rounded">
               <div class="card-body">
@@ -239,34 +207,34 @@
                 <hr>
 
                 <h3 class="custom-main-card-body-title">Curso</h3>
-                <p>Pós-Graduação - Direito Comercial</p>
+                <p>{{courseResult.nome}}</p>
 
                 <hr>
 
                 <h3 class="custom-main-card-body-title">Modalidade</h3>
-                <p>Presencial</p>
+                <p>{{courseResult.id_modalidade}}</p>
 
                 <hr>
 
                 <h3 class="custom-main-card-body-title">Período</h3>
-                <p>Noturno - Quartas e Sexta das 19h às 22h40</p>
+                <p>{{courseResult.periodo}}</p>
 
                 <hr>
 
                 <h3 class="custom-main-card-body-title">Duração</h3>
-                <p>1 ano e meio</p>
+                <p>{{courseResult.duracao}}</p>
 
                 <hr>
 
                 <h3 class="custom-main-card-body-title">Investimento Mensal</h3>
-                <p>R$ 1.373,75</p>
+                <p>R$ {{courseResult.valorMensal}}</p>
 
                 <hr>
 
-                <h3 class="custom-main-card-body-title">Localização</h3>
+                <!-- <h3 class="custom-main-card-body-title">Localização</h3>
                 <p>Moema</p>
 
-                <hr>
+                <hr> -->
 
                 <div class="mx-auto ">
                   <button type="button" class="btn btn-primary btn-lg custom-search-buttom">Ver detalhes</button>
