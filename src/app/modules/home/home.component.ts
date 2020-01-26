@@ -4,6 +4,7 @@ import { CourseService } from "../../services/course.service";
 import { CourseSpecializationService } from "../../services/course-specialization.service";
 import { Course } from 'src/app/models/Course';
 import { Specialization } from 'src/app/models/Specialization';
+import { CourseSearchApiResponse } from 'src/app/models/CourseSearchApiResponse';
 
 @Component({
     selector: 'app-home',
@@ -12,6 +13,7 @@ import { Specialization } from 'src/app/models/Specialization';
 })
 export class HomeComponent implements OnInit {
 
+    // Menu Search JSON using two-way data binding
     menuSearchOptions = {
         postGraduation: true,
         mba: false,
@@ -22,9 +24,13 @@ export class HomeComponent implements OnInit {
         onlineCourse: false
     };
 
+    // controls to display DOM Elements
     displaySearch = false;
     displayDefaultHome = true;
     displayHeaderMenuItens = true;
+
+    // course search result JSON
+    searchCouseResult: CourseSearchApiResponse;
 
     private courseList: Course[];
     private specializationList: Specialization[];
@@ -61,35 +67,38 @@ export class HomeComponent implements OnInit {
 
         if (menuSearchOptionsForm.invalid) return;
 
+        // controls to display DOM Elements
         this.displaySearch = true;
         this.displayDefaultHome = false;
         this.displayHeaderMenuItens = false;
 
-        console.log(this.menuSearchOptions);
+        // storing course and course specialization
+        let mainCouseAux = this.courseList.find(element => element.id == this.menuSearchOptions.mainCourse);
+        let courseSpecializationAux = this.specializationListDump.find(element => element.id == this.menuSearchOptions.courseSpecialization);
 
-        
-        let pesquisaObj = {
+        let searchCouseObj = {
             'pesquisa': {
-                'atuacao': this.courseList[this.menuSearchOptions.mainCourse].nome,
+                'atuacao': mainCouseAux.nome,
                 'mba': this.menuSearchOptions.mba,
                 'pos': this.menuSearchOptions.postGraduation,
-                'especializacao': this.specializationListDump[this.menuSearchOptions.courseSpecialization].nome,
+                'especializacao': courseSpecializationAux.nome,
                 'modalidade': [],
                 'pagina': ''
             }
         }
+
+        console.log(searchCouseObj);
         
         if (this.menuSearchOptions.onSite) {
-            pesquisaObj.pesquisa.modalidade.push(1);
+            searchCouseObj.pesquisa.modalidade.push(1);
         }
 
         if (this.menuSearchOptions.semiOnSite) {
-            pesquisaObj.pesquisa.modalidade.push(2);
+            searchCouseObj.pesquisa.modalidade.push(2);
         }
 
-        this.courseService.searchCourse(pesquisaObj).subscribe(response => {
-            console.log(response);
-        });
+        this.courseService.searchCourse(searchCouseObj)
+            .subscribe(response => this.searchCouseResult = response);
         
     }
 }
