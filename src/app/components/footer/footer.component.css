@@ -41,3 +41,12 @@ footer p {
 .privacy-policy-modal-link:hover {
     color: #ffffff;
 }
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) { 
+
+    footer {
+        font-size: 8px;
+        padding: 5px 10px;
+    }
+}
