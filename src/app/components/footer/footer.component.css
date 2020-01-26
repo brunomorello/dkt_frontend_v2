@@ -46,7 +46,24 @@ footer p {
 @media (max-width: 576px) { 
 
     footer {
-        font-size: 8px;
+        font-size: 10px;
         padding: 5px 10px;
+    }
+
+    .privacy-policy-modal-link {
+        font-size: 13px;
+    }
+
+    .custom-footer-policy-modal-link-p {
+        width: 90px;
+    }
+
+    .custom-footer-social-media-icons {
+        width: 25px;
+        height: 25px;
+    }
+
+    .custom-social-media{
+        display: inline;
     }
 }
