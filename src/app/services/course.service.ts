@@ -26,8 +26,6 @@ export class CourseService {
                 'Content-Type': 'application/json; charset=UTF-8'
             })
         };
-
-        console.log(searchOptions);
     
         return this.http.post<CourseSearchApiResponse>(`${this.endpoint}/curso/listarTodosPesquisa`, searchOptions, httpHeaders);
 
