@@ -1,3 +1,10 @@
+import { Specialization } from './Specialization';
+import { Course } from './Course';
+import { College } from './College';
+import { Modality } from './Modality';
+import { CourseURL } from './CourseURL';
+import { CourseURLManual } from './CourseURLManual';
+
 export class CourseSearchResponse {
 
     id: number;
@@ -15,5 +22,11 @@ export class CourseSearchResponse {
     id_cursoUrl_manual: number;
     id_especializacao: number;
     id_atuacao: number;
+    especializacao: Specialization;
+    atuacao: Course;
+    instituicao: College;
+    modalidade: Modality;
+    cursoUrl: CourseURL;
+    cursoUrlManual: CourseURLManual;
     
 }
