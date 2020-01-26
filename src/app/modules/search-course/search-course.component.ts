@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CourseSearchApiResponse } from 'src/app/models/CourseSearchApiResponse';
 
 @Component({
   selector: 'app-search-course',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./search-course.component.css']
 })
 export class SearchCourseComponent {
+
+  @Input() menuSearchOptions;
+
+  @Input() searchCouseResult: CourseSearchApiResponse;
 
 }
