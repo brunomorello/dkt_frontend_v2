@@ -23,10 +23,12 @@ export class CourseService {
 
         const httpHeaders = {
             headers: new HttpHeaders({
-                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                'Content-Type': 'application/json; charset=UTF-8'
             })
         };
 
+        console.log(searchOptions);
+    
         return this.http.post<CourseSearchApiResponse>(`${this.endpoint}/curso/listarTodosPesquisa`, searchOptions, httpHeaders);
 
     }
