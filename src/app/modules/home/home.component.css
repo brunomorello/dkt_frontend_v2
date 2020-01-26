@@ -299,3 +299,16 @@ input[type=range]:focus::-ms-fill-upper {
     font-size: 45px;
     font-weight: bold;
 }
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) { 
+
+    h1 {
+        font-size: 15px;
+    }
+
+    .custom-main-search-menu-bckg-img {
+        background-image: url('../../../assets/img/layout/banner2_small_devices.png');
+    }
+
+}

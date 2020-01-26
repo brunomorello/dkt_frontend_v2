@@ -44,3 +44,17 @@ header img {
 .navbar-brand {
     cursor: pointer;
 }
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) { 
+
+    header {
+        border-bottom: #4fbff1 solid 4px;
+    }
+
+    .dkt-header-img {
+        width: 100px;
+        height: 30px;
+    }
+
+}
