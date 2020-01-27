@@ -3,7 +3,7 @@
 }
 
 .custom-main-search-menu {
-    background: linear-gradient(to left,#1a4680, #0a1c33);
+    background: rgba(8,52,100);
     color: #ffffff;
     font-family: 'Open Sans', sans-serif;
 }
@@ -199,7 +199,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 .card {
     border-radius: 10px;
-    width: 100%;
+    width: 90%;
     height: 100%;
 }
 
@@ -239,7 +239,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .custom-next-step {
-    padding-top: 12%;
+    padding-top: 6%;
     background-color: #f3f8fe;
     padding-bottom: 3%;
 }
@@ -268,6 +268,7 @@ input[type=range]:focus::-ms-fill-upper {
 .custom-next-step-badge-item-text {
     color: #1a4680;
     font-size: medium;
+    padding-right: 10px;
 }
 
 .custom-next-step-content {
@@ -328,12 +329,13 @@ input[type=range]:focus::-ms-fill-upper {
     }
 
     .custom-main-search-menu {
+        background: url('../../../assets/img/layout/banner2_small_devices.png') no-repeat right;
         height: 280px;
         width: auto;
     }
-
+    
     .custom-main-search-menu-bckg-img {
-        background-image: url('../../../assets/img/layout/banner2_small_devices.png');
+        background-image: none;
         height: auto;
         position: relative;
     }
@@ -459,6 +461,7 @@ input[type=range]:focus::-ms-fill-upper {
     }
 
     .custom-newletter-bck {
+        padding: 10px;
         font-size: 13px;
     }
 
