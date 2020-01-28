@@ -36,6 +36,9 @@ export class HomeComponent implements OnInit {
     private specializationList: Specialization[];
     private specializationListDump: Specialization[];
 
+    // Error Message
+    errorMessage: string;
+
     constructor(private courseService: CourseService, private courseSpecService: CourseSpecializationService) { }
 
     ngOnInit() {
@@ -68,7 +71,19 @@ export class HomeComponent implements OnInit {
 
     performSearch(menuSearchOptionsForm: NgForm) {
 
-        if (menuSearchOptionsForm.invalid) return;
+        if (menuSearchOptionsForm.invalid || this.menuSearchOptions.mainCourse == "0" || this.menuSearchOptions.courseSpecialization == "0") {
+
+            this.errorMessage = "Por favor selecione uma Área de atuação e uma Especialização";
+
+            $('.alert').show().focus();
+
+            // hide alert after 2s
+            setTimeout(() => {
+                $('.alert').hide();
+            }, 2000);
+
+            return;
+        }
 
         // controls to display DOM Elements
         this.displaySearch = true;
