@@ -54,9 +54,11 @@
 
               <select 
                 [(ngModel)]="menuSearchOptions.mainCourse"
+                (change)="loadSpecialization($event)"
                 name="course-area-select" id="course-area-select" 
                 class="custom-select" required>
 
+                <option value="0" selected>Selecione</option>
                 <option *ngFor="let course of courseList" value="{{course.id}}">{{course.nome}}</option>
               </select>
 
@@ -69,6 +71,7 @@
                 name="ccourse-specialization-select" id="ccourse-specialization-select" 
                 class="custom-select" required>
                 
+                <option value="0" selected>Selecione</option>
                 <option *ngFor="let spec of specializationList" value="{{spec.id}}">{{spec.nome}}</option>
               </select>
 
@@ -160,8 +163,13 @@
               </select> -->
 
               <div class="mx-auto pt-5">
-                <button type="button" class="btn btn-outline-primary btn-lg mr-3">Limpar Filtros</button>
-                <button type="submit" class="btn btn-primary btn-lg">Pesquisar</button>
+                <button 
+                  (click)="clearFilters()"
+                  type="button" class="btn btn-outline-primary mr-3">Limpar Filtros</button>
+                
+                <button 
+                  (click)="performSearch(menuSearchOptionsForm)"
+                  type="button" class="btn btn-primary">Pesquisar</button>
               </div>
 
             </form>
@@ -196,7 +204,7 @@
             <div class="card shadow p-3 mb-5 bg-white rounded">
               <div class="card-body">
                 <div class="custom-card-image-title">
-                  <img src="{{courseResult.instituicao.urlLogo}}" alt="puc">
+                  <img src="{{courseResult.instituicao.urlLogo}}" alt="{{courseResult.instituicao.sigla}}">
                 </div>
 
                 <hr>
@@ -227,7 +235,7 @@
                 <hr>
 
                 <h3 class="custom-main-card-body-title">Investimento Mensal</h3>
-                <p>R$ {{courseResult.valorMensal}}</p>
+                <p>{{courseResult.valorMensal | currency: 'BRL'}}</p>
 
                 <hr>
 
