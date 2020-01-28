@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
     // Menu Search JSON using two-way data binding
     menuSearchOptions = {
         postGraduation: true,
-        mba: false,
+        mba: true,
         mainCourse: '1',
         courseSpecialization: '1',
         onSite: true,
@@ -86,8 +86,6 @@ export class HomeComponent implements OnInit {
                 'pagina': ''
             }
         }
-
-        console.log(searchCouseObj);
         
         if (this.menuSearchOptions.onSite) {
             searchCouseObj.pesquisa.modalidade.push(1);
