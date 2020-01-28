@@ -22,7 +22,7 @@ export class SearchCourseComponent {
 
   @Input() specializationList: Specialization[];
 
-  private errorMessage: string;
+  errorMessage: string;
 
   constructor(private courseService: CourseService) { }
 
