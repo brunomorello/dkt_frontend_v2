@@ -12,6 +12,8 @@ import { SearchCourseComponent } from './modules/search-course/search-course.com
 import { HomeCustomerDoubtsFormEmailComponent } from './modules/home-customer-doubts-form-email/home-customer-doubts-form-email.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import * as $ from 'jquery';
+
 @NgModule({
   declarations: [
     AppComponent,
