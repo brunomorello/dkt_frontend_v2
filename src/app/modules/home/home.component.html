@@ -58,10 +58,10 @@
             
                     <hr class="custom-main-search-hr">
             
-                    <div class="form-row mt-3">
+                    <div class="form-row">
                         <div class="form-group col-md-5">
                             <label for="course-area-select" class="custom-main-search-label">Escolha uma área de atuação </label>
-                            <small class="form-text form-check-inline text-muted ml-2">(ex: Direito)</small>
+                            <small class="form-text form-check-inline text-muted ml-1">(ex: “Administração”)</small>
         
                             <select
                                 [(ngModel)]="menuSearchOptions.mainCourse"
@@ -70,12 +70,15 @@
                                 class="form-control custom-select">
                                 
                                 <option *ngFor="let course of courseList" value="{{course.id}}">{{course.nome}}</option>
+
                             </select>
                         </div>
+
+                        <div class="col-md"></div>
             
                         <div class="form-group col-md-5">
                             <label for="course-specialization-select" class="custom-main-search-label">Escolha uma especialização </label>
-                            <small class="form-text form-check-inline text-muted ml-2">(ex: Direito Comercial)</small>
+                            <small class="form-text form-check-inline text-muted ml-1">(ex: "Gestão Financeira")</small>
         
                             <select 
                                 [(ngModel)]="menuSearchOptions.courseSpecialization"
