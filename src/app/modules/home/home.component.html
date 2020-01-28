@@ -69,6 +69,7 @@
                                 name="course-area-select" id="course-area-select" 
                                 class="form-control custom-select">
                                 
+                                <option value="0" selected disabled>Selecione</option>
                                 <option *ngFor="let course of courseList" value="{{course.id}}">{{course.nome}}</option>
 
                             </select>
@@ -85,6 +86,7 @@
                                 name="course-specialization-select" id="course-specialization-select" 
                                 class="form-control custom-select">
                                 
+                                <option value="0" selected disabled>Selecione</option>
                                 <option *ngFor="let spec of specializationList" value="{{spec.id}}">{{spec.nome}}</option>
                             </select>
                         </div>

@@ -17,8 +17,8 @@ export class HomeComponent implements OnInit {
     menuSearchOptions = {
         postGraduation: true,
         mba: true,
-        mainCourse: '1',
-        courseSpecialization: '1',
+        mainCourse: '0',
+        courseSpecialization: '0',
         onSite: true,
         semiOnSite: true,
         onlineCourse: false
@@ -55,6 +55,9 @@ export class HomeComponent implements OnInit {
 
         //cleanup specializationList array
         this.specializationList = [];
+
+        // Sets an invalid option to initialize select element
+        this.menuSearchOptions.courseSpecialization = "0";
 
         this.specializationListDump.forEach(spec => {
             if(spec.id_atuacao == event.target.value)  
