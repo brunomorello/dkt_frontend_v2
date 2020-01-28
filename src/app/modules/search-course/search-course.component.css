@@ -27,8 +27,9 @@ main {
 }
 
 .custom-card-image-title {
-    width: 100%;
-    height: 100%;
+    width: 100px;
+    height: 100px;
+    margin: auto;
 }
 
 .custom-card-image-title > img {
@@ -39,6 +40,10 @@ main {
     max-width: 100px; 
     height: auto;
     margin: auto;
+}
+
+.card-body > p {
+    height: 40px;
 }
 
 .custom-card-menu-header {
