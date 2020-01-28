@@ -22,6 +22,8 @@ export class SearchCourseComponent {
 
   @Input() specializationList: Specialization[];
 
+  private errorMessage: string;
+
   constructor(private courseService: CourseService) { }
 
   loadSpecialization(event) {
@@ -40,7 +42,20 @@ export class SearchCourseComponent {
 
   performSearch(menuSearchOptionsForm: NgForm) {
 
-    if (menuSearchOptionsForm.invalid) return;
+    if (menuSearchOptionsForm.invalid || this.menuSearchOptions.mainCourse == "0" || this.menuSearchOptions.courseSpecialization == "0") {
+      
+      this.errorMessage = "Por favor selecione uma Área de atuação e uma Especialização";
+      
+      $('.alert').show().focus();
+
+      // hide alert after 2s
+      setTimeout(() => {
+        $('.alert').hide();
+      }, 2000);
+
+      return;
+
+    }
 
     // storing course and course specialization
     let mainCouseAux = this.courseList.find(element => element.id == this.menuSearchOptions.mainCourse);
