@@ -201,6 +201,7 @@ input[type=range]:focus::-ms-fill-upper {
     border-radius: 10px;
     width: 90%;
     height: 100%;
+    font-size: 15px;
 }
 
 .custom-main-search-card-position {
@@ -220,7 +221,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .custom-form-label {
-    font-size: large;
+    font-size: medium;
 }
 
 .custom-main-text-border {
@@ -230,6 +231,10 @@ input[type=range]:focus::-ms-fill-upper {
 
 .custom-main-search-label {
     color: #244278;
+}
+
+small {
+    font-size: 11px;
 }
 
 .custom-primary-button {
@@ -365,6 +370,10 @@ input[type=range]:focus::-ms-fill-upper {
         width: 96%;
     }
 
+    small {
+        font-size: 9.5px;
+    }
+
     .card > input {
         font-size: 12px;
     }
@@ -376,6 +385,10 @@ input[type=range]:focus::-ms-fill-upper {
     .custom-form-label {
         font-size: 12px;
         text-align: center;
+    }
+
+    select {
+        font-size: small;
     }
 
     .custom-input-course-type {
