@@ -326,10 +326,14 @@
     </div>
     </div>
     
+    <div class="alert alert-dismissible fade show" id="newsletter-confirmation" style="display: none;" role="alert">
+        {{ errorMessage }}
+    </div>
+
     <div class="custom-newletter-bck">
     <div class="container">
-
         <section class="custom-newsletter p-5 hide-desktop">
+
             <h2 class="custom-newsletter-title">
                 Fique por dentro das novidades do mercado!
             </h2>
@@ -338,12 +342,18 @@
                 Receba notícias sobre carreira, o que está em alta no mercado de trabalho e informações sobre <br/>novos cursos disponíveis.
             </p>
 
-            <div class="input-group input-group-lg p-5">
-                <input type="email" name="customer-email-newsletter" id="customer-email-newsletter" class="form-control" placeholder="Digite seu endereço de email" aria-label="Digite seu endereço de email" aria-describedby="email-newsletter">
-                <div class="input-group-append">
-                    <button class="btn btn-lg custom-newletter-button" type="button" id="email-newsletter">Cadastre-se</button>
+            <form
+                #customerFormNewsletter="ngForm"
+                (ngSubmit)="receiveEmailNewsletter(customerFormNewsletter)">
+                <div class="input-group input-group-lg p-5">
+                    <input 
+                    [(ngModel)]="customerMailNewsletter"
+                    type="email" name="customer-email-newsletter" id="customer-email-newsletter" class="form-control" placeholder="Digite seu endereço de email" aria-label="Digite seu endereço de email" aria-describedby="email-newsletter">
+                    <div class="input-group-append">
+                        <button class="btn btn-md custom-newletter-button" type="submit" id="email-newsletter">Cadastre-se</button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </section>
 
         <section class="custom-newsletter p-5 hide-mobile">

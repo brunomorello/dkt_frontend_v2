@@ -1,10 +1,11 @@
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl, NgForm } from "@angular/forms";
+import { NgForm } from "@angular/forms";
 import { CourseService } from "../../services/course.service";
 import { CourseSpecializationService } from "../../services/course-specialization.service";
 import { Course } from 'src/app/models/Course';
 import { Specialization } from 'src/app/models/Specialization';
 import { CourseSearchApiResponse } from 'src/app/models/CourseSearchApiResponse';
+import { SendGridMailAPIService } from 'src/app/services/send-grid-mail-api.service';
 
 @Component({
     selector: 'app-home',
@@ -24,6 +25,9 @@ export class HomeComponent implements OnInit {
         onlineCourse: false
     };
 
+    // Customer Newsletter
+    customerMailNewsletter = "";
+
     // controls to display DOM Elements
     displaySearch = false;
     displayDefaultHome = true;
@@ -39,7 +43,7 @@ export class HomeComponent implements OnInit {
     // Error Message
     errorMessage: string;
 
-    constructor(private courseService: CourseService, private courseSpecService: CourseSpecializationService) { }
+    constructor(private courseService: CourseService, private courseSpecService: CourseSpecializationService, private mailService: SendGridMailAPIService) { }
 
     ngOnInit() {
         
@@ -116,5 +120,43 @@ export class HomeComponent implements OnInit {
         this.courseService.searchCourse(searchCouseObj)
             .subscribe(response => this.searchCouseResult = response);
         
+    }
+
+    receiveEmailNewsletter(customerFormNewsletter: NgForm) {
+
+        let msg = {
+            "text": `E-mail recebido para newsletter: ${this.customerMailNewsletter}`
+        };
+
+        this.mailService.sendMail(msg)
+            .subscribe(resp => {
+                console.log(resp);
+
+                if(resp.statusCode != "202" && resp.statusCode != "200") {
+                    this.errorMessage = "Erro para receber seu e-mail, contacte a equipe através do e-mail contato@direkte.com.br";
+                    
+                    $("#newsletter-confirmation")
+                        .addClass('alert-danger')
+                        .show()
+                        .focus();
+                }
+
+                this.errorMessage = "E-mail recebido com sucesso! Obrigado";
+                
+                $('#newsletter-confirmation')
+                .removeClass('alert-danger')
+                .addClass('alert-success')
+                .show()
+                .focus();
+                
+                setTimeout(() => {
+                    
+                    $('#newsletter-confirmation').hide();
+                    
+                    this.customerMailNewsletter = "";
+                    this.errorMessage = "";
+                }, 2000);
+            });
+
     }
 }
