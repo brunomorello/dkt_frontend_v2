@@ -208,7 +208,7 @@
             <div class="card shadow p-3 mb-5 bg-white rounded">
               <div class="card-body">
                 <div class="custom-card-image-title">
-                  <img src="{{courseResult.instituicao.urlLogo}}" alt="{{courseResult.instituicao.sigla}}">
+                  <img src="{{courseResult.instituicao.urlLogo}}" alt="{{courseResult.instituicao.sigla}}" class="align-middle">
                 </div>
 
                 <hr>
@@ -234,7 +234,8 @@
                 <hr>
 
                 <h3 class="custom-main-card-body-title">Duração</h3>
-                <p>{{courseResult.duracao}}</p>
+                <p *ngIf="courseResult.duracao > 1">{{courseResult.duracao}} Meses</p>
+                <p *ngIf="courseResult.duracao == 1">{{courseResult.duracao}} Meses</p>
 
                 <hr>
 
