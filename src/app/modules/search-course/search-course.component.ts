@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CourseSearchApiResponse } from 'src/app/models/CourseSearchApiResponse';
 import { Course } from 'src/app/models/Course';
 import { Specialization } from 'src/app/models/Specialization';
@@ -10,7 +10,7 @@ import { CourseService } from 'src/app/services/course.service';
   templateUrl: './search-course.component.html',
   styleUrls: ['./search-course.component.css']
 })
-export class SearchCourseComponent {
+export class SearchCourseComponent implements OnInit {
 
   @Input() menuSearchOptions;
 
@@ -25,6 +25,12 @@ export class SearchCourseComponent {
   errorMessage: string;
 
   constructor(private courseService: CourseService) { }
+
+  ngOnInit() {
+
+    $('.nav-link').hide();
+
+  }
 
   loadSpecialization(event) {
 
