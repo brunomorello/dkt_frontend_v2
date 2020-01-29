@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { SendGridMailAPIService } from "../../services/send-grid-mail-api.service";
 
 @Component({
   selector: 'app-home-customer-doubts-form-email',
@@ -8,7 +9,7 @@ import { NgForm } from '@angular/forms';
 })
 export class HomeCustomerDoubtsFormEmailComponent {
 
-  constructor() { }
+  constructor(private mailService: SendGridMailAPIService) { }
 
   customer = {
     name: '',
@@ -49,21 +50,23 @@ export class HomeCustomerDoubtsFormEmailComponent {
     // validation of empty elements
     domElementList.forEach(element => {
 
-      console.log(element.val());
-
       if (element.val() == "" || element.val() == "0" || element.val() == null) {
         element.addClass('is-invalid');
         invalidField = true;
-        console.log(element);
       }
+
     });
 
     if(invalidField) return;
 
     console.log(customerDoubtsForm);
 
+    this.mailService.sendMail(JSON.stringify(this.customer))
+      .subscribe(response => console.log(response));
+
   }
 
+  //TODO
   removeValidations() {
     
   }
