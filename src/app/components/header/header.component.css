@@ -65,4 +65,10 @@ header img {
         padding-right: 0.25rem !important;
     }
 
+    .custom-navbar-contact-buttom {
+        margin: .3rem 1rem;
+        display: block;
+        text-align: center;
+    }
+
 }
