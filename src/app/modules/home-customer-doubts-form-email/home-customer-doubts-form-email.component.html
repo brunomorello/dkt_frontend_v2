@@ -20,8 +20,11 @@
                     <div class="form-row">
                         <div class="col-md mb-3">
                             <label for="customer-doubts-form-cust-name">Nome</label>
-                            <input type="text" name="customer-doubts-form-cust-name" id="customer-doubts-form-cust-name"
-                                placeholder="Digite seu nome" class="form-control is-invalid" required>
+                            <input 
+                                [(ngModel)]="customer.name"
+                                (input)="checkChanges('customer-doubts-form-cust-name')"
+                                type="text" name="customer-doubts-form-cust-name" id="customer-doubts-form-cust-name"
+                                placeholder="Digite seu nome" class="form-control" required>
                             <div class="invalid-feedback">
                                 Por favor preencha seu nome.
                             </div>
@@ -29,9 +32,12 @@
 
                         <div class="col-md mb-3">
                             <label for="customer-doubts-form-cust-email">E-mail</label>
-                            <input type="email" name="customer-doubts-form-cust-email"
+                            <input 
+                                [(ngModel)]="customer.email"
+                                (input)="checkChanges('customer-doubts-form-cust-email')"
+                                type="email" name="customer-doubts-form-cust-email"
                                 id="customer-doubts-form-cust-email" placeholder="Digite seu e-mail"
-                                class="form-control is-invalid" required>
+                                class="form-control" required>
                             <div class="invalid-feedback">
                                 Por favor preencha seu e-mail.
                             </div>
@@ -41,9 +47,12 @@
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
                             <label for="customer-doubts-form-cust-age">Idade</label>
-                            <select name="customer-doubts-form-cust-age" id="customer-doubts-form-cust-age"
-                                class="custom-select form-control is-invalid" required>
-                                <option selected disabled value="">Selecione...</option>
+                            <select 
+                                [(ngModel)]="customer.age"
+                                (input)="checkChanges('customer-doubts-form-cust-age')"
+                                name="customer-doubts-form-cust-age" id="customer-doubts-form-cust-age"
+                                class="custom-select form-control" required>
+                                <option selected disabled value="0">Selecione...</option>
                                 <option value="Entre 18 e 25 anos">Entre 18 e 25 anos</option>
                                 <option value="Entre 26 e 35 anos">Entre 26 e 35 anos</option>
                                 <option value="Entre 36 e 45 anos">Entre 36 e 45 anos</option>
@@ -57,7 +66,9 @@
 
                         <div class="col-md-6">
                             <label for="customer-doubts-form-cust-level-education">Nível de escolaridade</label>
-                            <select name="customer-doubts-form-cust-level-education"
+                            <select 
+                                [(ngModel)]="customer.educationLevel"
+                                name="customer-doubts-form-cust-level-education"
                                 id="customer-doubts-form-cust-level-education" class="custom-select form-control" required>
                                 
                                 <option value="Ensino médio completo">Ensino médio completo</option>
@@ -72,7 +83,9 @@
                     <div class="form-row">
                         <div class="col-md-6">
                             <label for="customer-doubts-form-cust-employed">Atualmente está empregado?</label>
-                            <select name="customer-doubts-form-cust-employed" id="customer-doubts-form-cust-employed"
+                            <select 
+                                [(ngModel)]="customer.employed"
+                                name="customer-doubts-form-cust-employed" id="customer-doubts-form-cust-employed"
                                 class="custom-select form-control">
                                     <option value="true">Sim</option>
                                     <option value="false">Não</option>
@@ -82,8 +95,11 @@
                         <div class="col-md-6 mb-3">
                             <label for="customer-doubts-form-cust-current-job">Cargo Atual (ou último) e área de
                                 interesse</label>
-                            <input type="text" name="customer-doubts-form-cust-current-job"
-                                id="customer-doubts-form-cust-current-job" class="form-control is-invalid" required>
+                            <input 
+                                [(ngModel)]="customer.currentJob"
+                                (input)="checkChanges('customer-doubts-form-cust-current-job')"
+                                type="text" name="customer-doubts-form-cust-current-job"
+                                id="customer-doubts-form-cust-current-job" class="form-control" required>
                             <div class="invalid-feedback">
                                 Por favor preencha este campo.
                             </div>
@@ -93,9 +109,12 @@
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
                             <label for="customer-doubts-form-cust-investment">Até quanto pretende investir?</label>
-                            <select name="customer-doubts-form-cust-investment"
-                                id="customer-doubts-form-cust-investment" class="custom-select is-invalid" required>
-                                <option selected disabled value="">Selecione...</option>
+                            <select 
+                                [(ngModel)]="customer.investmentIntention"
+                                (input)="checkChanges('customer-doubts-form-cust-investment')"
+                                name="customer-doubts-form-cust-investment"
+                                id="customer-doubts-form-cust-investment" class="custom-select" required>
+                                <option selected disabled value="0">Selecione...</option>
                                 <option value="Até 300 reais por mês">Até 300 reais por mês</option>
                                 <option value="Entre 300 e 600 reais por mês">Entre 300 e 600 reais por mês</option>
                                 <option value="Entre 600 e 900 reais por mês">Entre 600 e 900 reais por mês</option>
@@ -109,7 +128,9 @@
 
                         <div class="col-md-6">
                             <label for="customer-doubts-form-cust-course-type">Que modalidade de curso busca?</label>
-                            <select name="customer-doubts-form-cust-course-type"
+                            <select 
+                                [(ngModel)]="customer.courseType"
+                                name="customer-doubts-form-cust-course-type"
                                 id="customer-doubts-form-cust-course-type" class="custom-select form-control">
                                 <option value="Presencial">Presencial</option>
                                 <option value="A distância">A distância</option>
@@ -121,7 +142,9 @@
                         <div class="col-md">
                             <label for="customer-doubts-form-cust-aspiration">O que busca com o curso de MBA ou Pós
                                 Graduação</label>
-                            <textarea name="customer-doubts-form-cust-aspiration"
+                            <textarea 
+                                [(ngModel)]="customer.aspiration"
+                                name="customer-doubts-form-cust-aspiration"
                                 id="customer-doubts-form-cust-aspiration" cols="15" rows="3"
                                 class="form-control"></textarea>
                         </div>
@@ -129,7 +152,9 @@
 
                     <div class="form-row mt-3">
                         <div class="col-md ml-3">
-                            <input type="checkbox" class="form-check-input"
+                            <input 
+                                [(ngModel)]="customer.agreeReceiveEmails"
+                                type="checkbox" class="form-check-input"
                                 name="customer-doubts-form-cust-accept-more-info"
                                 id="customer-doubts-form-cust-accept-more-info">
                             <label for="customer-doubts-form-cust-accept-more-info" class="form-check-label">Aceito
