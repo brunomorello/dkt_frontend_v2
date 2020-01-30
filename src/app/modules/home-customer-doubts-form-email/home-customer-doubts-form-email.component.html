@@ -23,7 +23,7 @@
 
                     <div class="form-row">
                         <div class="col-md mb-3">
-                            <label for="customer-doubts-form-cust-name">Nome</label>
+                            <label for="customer-doubts-form-cust-name">Nome *</label>
                             <input 
                                 [(ngModel)]="customer.name"
                                 (input)="checkChanges('customer-doubts-form-cust-name')"
@@ -35,7 +35,7 @@
                         </div>
 
                         <div class="col-md mb-3">
-                            <label for="customer-doubts-form-cust-email">E-mail</label>
+                            <label for="customer-doubts-form-cust-email">E-mail *</label>
                             <input 
                                 [(ngModel)]="customer.email"
                                 (input)="checkChanges('customer-doubts-form-cust-email')"
@@ -50,7 +50,7 @@
 
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
-                            <label for="customer-doubts-form-cust-age">Idade</label>
+                            <label for="customer-doubts-form-cust-age">Idade *</label>
                             <select 
                                 [(ngModel)]="customer.age"
                                 (input)="checkChanges('customer-doubts-form-cust-age')"
@@ -68,7 +68,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-3">
                             <label for="customer-doubts-form-cust-level-education">Nível de escolaridade</label>
                             <select 
                                 [(ngModel)]="customer.educationLevel"
@@ -85,7 +85,7 @@
                     </div>
 
                     <div class="form-row">
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-3">
                             <label for="customer-doubts-form-cust-employed">Atualmente está empregado?</label>
                             <select 
                                 [(ngModel)]="customer.employed"
@@ -98,7 +98,7 @@
 
                         <div class="col-md-6 mb-3">
                             <label for="customer-doubts-form-cust-current-job">Cargo Atual (ou último) e área de
-                                interesse</label>
+                                interesse *</label>
                             <input 
                                 [(ngModel)]="customer.currentJob"
                                 (input)="checkChanges('customer-doubts-form-cust-current-job')"
@@ -112,7 +112,7 @@
 
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
-                            <label for="customer-doubts-form-cust-investment">Até quanto pretende investir?</label>
+                            <label for="customer-doubts-form-cust-investment">Até quanto pretende investir? *</label>
                             <select 
                                 [(ngModel)]="customer.investmentIntention"
                                 (input)="checkChanges('customer-doubts-form-cust-investment')"
@@ -137,7 +137,7 @@
                                 name="customer-doubts-form-cust-course-type"
                                 id="customer-doubts-form-cust-course-type" class="custom-select form-control">
                                 <option value="Presencial">Presencial</option>
-                                <option value="A distância">A distância</option>
+                                <option value="EAD">EAD</option>
                             </select>
                         </div>
                     </div>
