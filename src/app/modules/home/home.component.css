@@ -218,6 +218,8 @@ input[type=range]:focus::-ms-fill-upper {
 
 .card-title b {
     color: #244278;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .custom-form-label {
@@ -244,7 +246,7 @@ small {
 }
 
 .custom-next-step {
-    padding-top: 6%;
+    padding-top: 4%;
     background-color: #f3f8fe;
     padding-bottom: 3%;
 }
@@ -368,6 +370,10 @@ small {
     .card {
         font-size: 12px;
         width: 96%;
+    }
+
+    .card-title b {
+        font-size: 15px;
     }
 
     small {
