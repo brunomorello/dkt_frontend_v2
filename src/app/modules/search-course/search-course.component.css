@@ -9,7 +9,11 @@ main {
 
 .card {
     min-width: 20rem;
-    max-width: 22rem;
+    max-width: 20rem;
+}
+
+.card-body > p {
+    font-size: 13px;
 }
 
 .custom-card-menu {
@@ -42,9 +46,9 @@ main {
     margin: auto;
 }
 
-.card-body > p {
+/* .card-body > p {
     height: 40px;
-}
+} */
 
 .custom-card-menu-header {
     background-color: #3082ed;
@@ -73,10 +77,6 @@ main {
 
 .custom-main-card-body-tip {
     color: #c7c7c7;
-    font-size: 13px;
-}
-
-.card-body > p {
     font-size: 13px;
 }
 
