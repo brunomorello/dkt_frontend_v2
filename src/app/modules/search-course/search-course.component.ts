@@ -63,6 +63,19 @@ export class SearchCourseComponent implements OnInit {
 
     }
 
+    this.errorMessage = "Busca Executada com sucesso";
+
+    $('.alert')
+          .removeClass('alert-danger')
+          .addClass('alert-success')
+          .show()
+          .focus();
+
+        setTimeout(() => {
+          $('.alert').hide()
+          this.errorMessage = "";
+        }, 2000);
+
     // storing course and course specialization
     let mainCouseAux = this.courseList.find(element => element.id == this.menuSearchOptions.mainCourse);
     let courseSpecializationAux = this.specializationListDump.find(element => element.id == this.menuSearchOptions.courseSpecialization);
