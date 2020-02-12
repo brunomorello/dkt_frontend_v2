@@ -193,7 +193,11 @@
         
         <div class="row mt-3">
           <div class="col-sm">
-            <p>
+            <p *ngIf="searchCouseResult.msg.length == 1">
+              {{searchCouseResult.msg.length}} resultado encontrado
+            </p>
+
+            <p *ngIf="searchCouseResult.msg.length > 1">
               {{searchCouseResult.msg.length}} resultados encontrados
             </p>
           </div>
@@ -235,7 +239,7 @@
 
                 <h3 class="custom-main-card-body-title">Duração</h3>
                 <p *ngIf="courseResult.duracao > 1">{{courseResult.duracao}} Meses</p>
-                <p *ngIf="courseResult.duracao == 1">{{courseResult.duracao}} Meses</p>
+                <p *ngIf="courseResult.duracao == 1">{{courseResult.duracao}} Mês</p>
 
                 <hr>
 
