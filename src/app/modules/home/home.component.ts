@@ -52,9 +52,6 @@ export class HomeComponent implements OnInit {
 
         this.courseSpecService.getSpecializationList()
             .subscribe(response => this.specializationListDump = response.msg);
-
-        this.courseSpecService.getSpecializationById("1")
-            .subscribe(response => this.specializationList = response.msg);
             
     }
 
