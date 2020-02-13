@@ -71,7 +71,9 @@
                                 [(ngModel)]="menuSearchOptions.mainCourse"
                                 (change)="loadSpecialization($event)"
                                 name="course-area-select" id="course-area-select" 
-                                class="form-control custom-select">
+                                class="form-control custom-select"
+                                [ngClass]="{ 'custom-focus-select-box': courseListBoxFocus}"
+                                >
                                 
                                 <option value="0" selected disabled>Selecione</option>
                                 <option *ngFor="let course of courseList" value="{{course.id}}">{{course.nome}}</option>
@@ -87,8 +89,10 @@
         
                             <select 
                                 [(ngModel)]="menuSearchOptions.courseSpecialization"
+                                (change)="removeFocusBox('spec')"
                                 name="course-specialization-select" id="course-specialization-select" 
-                                class="form-control custom-select">
+                                class="form-control custom-select"
+                                [ngClass]="{ 'custom-focus-select-box': specListBoxFocus}">
                                 
                                 <option value="0" selected disabled>Selecione</option>
                                 <option *ngFor="let spec of specializationList" value="{{spec.id}}">{{spec.nome}}</option>

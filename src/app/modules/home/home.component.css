@@ -212,6 +212,10 @@ input[type=range]:focus::-ms-fill-upper {
     float: right;
 }
 
+.custom-focus-select-box {
+    box-shadow: 0 .5rem 1rem rgba(48,130,237) !important;
+}
+
 .custom-main-search-hr {
     border-top: 1px solid #3082ed;
 }

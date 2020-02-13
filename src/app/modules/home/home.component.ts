@@ -32,6 +32,8 @@ export class HomeComponent implements OnInit {
     displaySearch = false;
     displayDefaultHome = true;
     displayHeaderMenuItens = true;
+    courseListBoxFocus = true;
+    specListBoxFocus = false;
 
     // course search result JSON
     searchCouseResult: CourseSearchApiResponse;
@@ -57,6 +59,9 @@ export class HomeComponent implements OnInit {
 
     loadSpecialization(event) {
 
+        this.removeFocusBox("course");
+        this.specListBoxFocus = true;
+
         //cleanup specializationList array
         this.specializationList = [];
 
@@ -68,6 +73,14 @@ export class HomeComponent implements OnInit {
                 this.specializationList.push(spec);
         });
 
+    }
+
+    removeFocusBox(boxName: string) {
+        if (boxName == "spec") {
+            this.specListBoxFocus = false;
+        } else if (boxName == "course") {
+            this.courseListBoxFocus = false;
+        }
     }
 
     performSearch(menuSearchOptionsForm: NgForm) {
@@ -156,4 +169,6 @@ export class HomeComponent implements OnInit {
             });
 
     }
+
+
 }
