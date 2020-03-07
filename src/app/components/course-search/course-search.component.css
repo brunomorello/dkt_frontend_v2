@@ -1,0 +1,85 @@
+main {
+    background-color: #f3f8fe;
+}
+
+.custom-main-text-border {
+    border-bottom: 3.5px solid #4fbff1;
+    text-decoration: none;
+}
+
+.card {
+    min-width: 20rem;
+    max-width: 20rem;
+}
+
+.card-body > p {
+    font-size: 13px;
+}
+
+.custom-card-menu {
+    border-radius: 15px;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+}
+
+.btn {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+}
+
+.custom-main-card-title {
+    color: #1a4680;
+    font-weight: bold;
+}
+
+.custom-card-image-title {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+}
+
+.custom-card-image-title > img {
+
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 100px; 
+    height: auto;
+    margin: auto;
+}
+
+/* .card-body > p {
+    height: 40px;
+} */
+
+.custom-card-menu-header {
+    background-color: #3082ed;
+    color: #ffffff;
+    margin-top: -1.25rem;
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
+    border-radius: 15px 15px 0 0;
+    padding: 1.25rem;
+}
+
+.custom-card-menu-header > h4 {
+    font-size: 22px;
+    text-align: center;
+}
+
+.custom-main-card-title > p {
+    font-size: 14px;
+    text-align: center;
+}
+
+.custom-main-card-body-title {
+    color: #3082ed;
+    font-size: 18px;
+}
+
+.custom-main-card-body-tip {
+    color: #c7c7c7;
+    font-size: 13px;
+}
+
+.custom-search-buttom {
+    border-radius: 8px;
+}

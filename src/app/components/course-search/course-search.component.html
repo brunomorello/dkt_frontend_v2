@@ -1,0 +1,70 @@
+<!-- <dkt-header [displayMenuItens]="displayHeaderMenuItens"></dkt-header> -->
+<p>
+  promo {{ searchParams.promo }}
+  course {{ searchParams.course }}
+  spec {{ searchParams.spec }}
+</p>
+
+<!-- Display Values only if search returned results -->
+<div class="row mt-1" *ngIf="searchCouseResult.length > 0">
+
+  <!-- Iterate through result list -->
+  <div class="col-sm" *ngFor="let courseResult of searchCouseResult">
+    <div class="card shadow p-3 mb-5 bg-white rounded">
+      <div class="card-body">
+        <div class="custom-card-image-title">
+          <img src="{{courseResult.instituicao.urlLogo}}" alt="{{courseResult.instituicao.sigla}}" class="align-middle">
+        </div>
+
+        <hr>
+
+        <h3 class="custom-main-card-body-title">Faculdade</h3>
+        <p>{{courseResult.instituicao.nome}}</p>
+
+        <hr>
+
+        <h3 class="custom-main-card-body-title">Curso</h3>
+        <p>{{courseResult.nome}}</p>
+
+        <hr>
+
+        <h3 class="custom-main-card-body-title">Modalidade</h3>
+        <p>{{courseResult.modalidade.nome}}</p>
+
+        <hr>
+
+        <h3 class="custom-main-card-body-title">Período</h3>
+        <p>{{courseResult.periodo}}</p>
+
+        <hr>
+
+        <h3 class="custom-main-card-body-title">Duração</h3>
+        <p *ngIf="courseResult.duracao > 1">{{courseResult.duracao}} Meses</p>
+        <p *ngIf="courseResult.duracao == 1">{{courseResult.duracao}} Mês</p>
+
+        <hr>
+
+        <h3 class="custom-main-card-body-title">Investimento Mensal</h3>
+        <p>{{courseResult.valorMensal | currency: 'BRL'}}</p>
+
+        <hr>
+
+        <!-- <h3 class="custom-main-card-body-title">Localização</h3>
+        <p>Moema</p>
+
+        <hr> -->
+
+        <div class="mx-auto ">
+          <a href="{{courseResult.cursoUrlManual.linkCurso}}" target="_blank" class="btn btn-primary btn-lg custom-search-buttom">Ver detalhes</a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  
+</div>
+
+<a href="" (click)="goToHome()">Home</a>
+<!-- <dkt-footer></dkt-footer> -->
+
