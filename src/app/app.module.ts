@@ -13,6 +13,7 @@ import { HomeCustomerDoubtsFormEmailComponent } from './modules/home-customer-do
 import { HttpClientModule } from '@angular/common/http';
 
 import * as $ from 'jquery';
+import { CourseSearchComponent } from './components/course-search/course-search.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +22,15 @@ import * as $ from 'jquery';
     FooterComponent,
     HomeComponent,
     SearchCourseComponent,
-    HomeCustomerDoubtsFormEmailComponent
+    HomeCustomerDoubtsFormEmailComponent,
+    CourseSearchComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
