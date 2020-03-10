@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'dkt-header',
@@ -9,10 +10,12 @@ import { Component, Input } from "@angular/core";
 })
 export class HeaderComponent {
 
+    constructor(private router: Router) {}
+
     @Input()displayMenuItens = false;
 
-    refresh() {
-        location.reload();
-    }
+    goToHome() {
+        this.router.navigate(['/']);
+      }
 
 }
