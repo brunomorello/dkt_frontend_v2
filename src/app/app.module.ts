@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import * as $ from 'jquery';
 import { CourseSearchComponent } from './components/course-search/course-search.component';
+import { CoursePreRegistrationComponent } from './components/course-pre-registration/course-pre-registration.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CourseSearchComponent } from './components/course-search/course-search.
     HomeComponent,
     SearchCourseComponent,
     HomeCustomerDoubtsFormEmailComponent,
-    CourseSearchComponent
+    CourseSearchComponent,
+    CoursePreRegistrationComponent
   ],
   imports: [
     BrowserModule,
