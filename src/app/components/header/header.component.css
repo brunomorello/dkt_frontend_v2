@@ -48,6 +48,21 @@ header img {
     cursor: pointer;
 }
 
+#promo {
+    padding: 10px;
+    background-color: #fc3e94;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.custom-search-buttom {
+    border-radius: 8px;
+    margin: 0 5px;
+    background-color: #781e64;
+    border-color: #541647;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (max-width: 576px) { 
 
@@ -69,6 +84,10 @@ header img {
         margin: .3rem 1rem;
         display: block;
         text-align: center;
+    }
+
+    #promo {
+        padding: 4px;
     }
 
 }
