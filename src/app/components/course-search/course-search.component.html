@@ -1,70 +1,232 @@
-<!-- <dkt-header [displayMenuItens]="displayHeaderMenuItens"></dkt-header> -->
-<p>
+<dkt-header [displayMenuItens]="displayHeaderMenuItens"></dkt-header>
+<!-- <p>
   promo {{ searchParams.promo }}
   course {{ searchParams.course }}
   spec {{ searchParams.spec }}
-</p>
+</p> -->
 
-<!-- Display Values only if search returned results -->
-<div class="row mt-1" *ngIf="searchCouseResult.length > 0">
+<section class="container">
 
-  <!-- Iterate through result list -->
-  <div class="col-sm" *ngFor="let courseResult of searchCouseResult">
-    <div class="card shadow p-3 mb-5 bg-white rounded">
-      <div class="card-body">
-        <div class="custom-card-image-title">
-          <img src="{{courseResult.instituicao.urlLogo}}" alt="{{courseResult.instituicao.sigla}}" class="align-middle">
-        </div>
-
-        <hr>
-
-        <h3 class="custom-main-card-body-title">Faculdade</h3>
-        <p>{{courseResult.instituicao.nome}}</p>
-
-        <hr>
-
-        <h3 class="custom-main-card-body-title">Curso</h3>
-        <p>{{courseResult.nome}}</p>
-
-        <hr>
-
-        <h3 class="custom-main-card-body-title">Modalidade</h3>
-        <p>{{courseResult.modalidade.nome}}</p>
-
-        <hr>
-
-        <h3 class="custom-main-card-body-title">Período</h3>
-        <p>{{courseResult.periodo}}</p>
-
-        <hr>
-
-        <h3 class="custom-main-card-body-title">Duração</h3>
-        <p *ngIf="courseResult.duracao > 1">{{courseResult.duracao}} Meses</p>
-        <p *ngIf="courseResult.duracao == 1">{{courseResult.duracao}} Mês</p>
-
-        <hr>
-
-        <h3 class="custom-main-card-body-title">Investimento Mensal</h3>
-        <p>{{courseResult.valorMensal | currency: 'BRL'}}</p>
-
-        <hr>
-
-        <!-- <h3 class="custom-main-card-body-title">Localização</h3>
-        <p>Moema</p>
-
-        <hr> -->
-
-        <div class="mx-auto ">
-          <a href="{{courseResult.cursoUrlManual.linkCurso}}" target="_blank" class="btn btn-primary btn-lg custom-search-buttom">Ver detalhes</a>
-        </div>
-
-      </div>
-    </div>
-
+  <div class="alert alert-danger alert-dismissible fade show" name="custom-alert" style="display: none;" role="alert">
+    {{ errorMessage }}
   </div>
+
+  <div class="row m-1">
+    <button class="btn btn-outline-primary btn-sn custom-search-buttom mx-auto" data-toggle="modal" data-target="#course-search-modal">
+      <i class="material-icons">
+        filter_list
+      </i> Nova Pesquisa
+    </button>
+  </div>
+
+  <p *ngIf="searchCouseResult.length == 1">
+    {{searchCouseResult.length}} resultado encontrado
+  </p>
+
+  <p *ngIf="searchCouseResult.length > 1">
+    {{searchCouseResult.length}} resultados encontrados
+  </p>
+
+  <!-- Display Values only if search returned results -->
+  <div class="row mt-1" *ngIf="searchCouseResult.length > 0">
   
+    <!-- Iterate through result list -->
+    <div class="col-sm" *ngFor="let courseResult of searchCouseResult">
+      <div class="card shadow p-3 mb-3 bg-white rounded">
+        <div class="card-body">
+          <div class="custom-card-image-title">
+            <img src="{{courseResult.instituicao.urlLogo}}" alt="{{courseResult.instituicao.sigla}}" class="align-middle">
+          </div>
+  
+          <hr>
+
+          <div class="row mt-3">
+            <div class="col-4 custom-main-card-body-title">
+              Faculdade:
+            </div>
+            
+            <div class="col">
+              {{courseResult.instituicao.sigla}}
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col-4 custom-main-card-body-title">
+              Curso:
+            </div>
+            
+            <div class="col">
+              {{courseResult.nome}}
+            </div>
+          </div>
+  
+          <div class="row mt-3">
+            <div class="col-4 custom-main-card-body-title">
+              Modalidade:
+            </div>
+            
+            <div class="col">
+              {{courseResult.modalidade.nome}}
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col-4 custom-main-card-body-title">
+              Período:
+            </div>
+            
+            <div class="col">
+              {{courseResult.periodo}}
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col-4 custom-main-card-body-title">
+              Duração:
+            </div>
+            
+            <div class="col" *ngIf="courseResult.duracao > 1">
+              {{courseResult.periodo}} Meses
+            </div>
+
+            <div class="col" *ngIf="courseResult.duracao == 1">
+              {{courseResult.periodo}} Mês
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col-4 custom-main-card-body-title">
+              Investimento Mensal:
+            </div>
+            
+            <div class="col">
+              {{courseResult.valorMensal | currency: 'BRL'}}
+            </div>
+          </div>          
+
+          <hr>
+  
+          <div>
+            <a href="{{courseResult.cursoUrlManual.linkCurso}}" target="_blank" class="btn btn-primary btn-sn custom-search-buttom">Ver detalhes</a>
+            <input type="hidden" name="course-more-details" value="{{ courseResult.nome }}">
+            <button (click)="setCourseDetails(courseResult)" class="btn btn-outline-primary btn-sn custom-search-buttom" data-toggle="modal" data-target="#course-pre-registration-modal">
+              Tenho Interesse
+            </button>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+    
+  </div>
+</section>
+<dkt-footer></dkt-footer>
+
+<div class="alert alert-dismissible fade show" id="customer-form-email-alert" style="display: none;" role="alert">
+  {{ errorMessage }}
 </div>
 
-<a href="" (click)="goToHome()">Home</a>
-<!-- <dkt-footer></dkt-footer> -->
+<!-- Modal - Course pre-registration -->
+<div class="modal fade" id="course-pre-registration-modal" tabindex="-1" role="dialog" aria-labelledby="registrationForm" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title custom-title" id="registrationForm">
+          <u class="customer-main-text-border">Tem int</u>eresse? <br/><br/> 
+          Vamos entrar em <u class="customer-main-text-border">contato</u> com você!
+        </h5>
 
+        <button class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <form #coursePreRegistration="ngForm" (ngSubmit)="sendRegistration(coursePreRegistration)" class="needs-validation">
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="col-sm">
+              <label for="customer-name">
+                Nome Completo *
+              </label>
+              <input 
+                [(ngModel)]="customer.name"
+                (input)="checkChanges('customer-name')"
+                type="text" name="customer-name" id="customer-name"
+                placeholder="Digite seu Nome Completo"
+                class="form-control is-invalid" rerquired>
+
+              <div class="invalid-feedback">
+                Por favor preencha seu nome.
+              </div>
+            </div>
+
+            <div class="col-sm">
+              <label for="customer-email">
+                E-mail *
+              </label>
+              <input 
+                [(ngModel)]="customer.email"
+                (input)="checkChanges('customer-email')"
+                type="email" name="customer-email" id="customer-email"
+                placeholder="Digite seu e-mail"
+                class="form-control is-invalid" rerquired>
+
+              <div class="invalid-feedback">
+                Por favor preencha seu e-mail.
+              </div>
+            </div>
+
+            <div class="col-sm">
+              <label for="customer-phone">
+                Telefone
+              </label>
+              <input 
+                [(ngModel)]="customer.phone"
+                (input)="checkChanges('customer-phone')"
+                type="text" name="customer-phone" id="customer-phone"
+                placeholder="Digite seu Nome Completo"
+                class="form-control is-invalid" rerquired>
+
+              <div class="invalid-feedback">
+                Por favor preencha seu telefone.
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary btn-sn mx-auto">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal - New Search -->
+
+<div class="modal fade" id="course-search-modal" tabindex="-1" role="dialog" aria-labelledby="registrationForm" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title custom-title" id="registrationForm">
+          <u class="customer-main-text-border">O que voc</u>ê está procurando?
+        </h5>
+
+        <button class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <form #coursePreRegistration="ngForm" (ngSubmit)="sendRegistration(coursePreRegistration)" class="needs-validation">
+        <div class="modal-body">
+          
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary btn-sn mx-auto">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

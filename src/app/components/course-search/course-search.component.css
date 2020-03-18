@@ -2,18 +2,22 @@ main {
     background-color: #f3f8fe;
 }
 
+section {
+    font-size: small;
+}
+
 .custom-main-text-border {
     border-bottom: 3.5px solid #4fbff1;
     text-decoration: none;
 }
 
-.card {
-    min-width: 20rem;
-    max-width: 20rem;
+.card-body {
+    font-size: 11px;
+    padding: 0;
 }
 
 .card-body > p {
-    font-size: 13px;
+    display: inline;
 }
 
 .custom-card-menu {
@@ -32,7 +36,7 @@ main {
 
 .custom-card-image-title {
     width: 100px;
-    height: 100px;
+    /* height: 100px; */
     margin: auto;
 }
 
@@ -72,7 +76,7 @@ main {
 
 .custom-main-card-body-title {
     color: #3082ed;
-    font-size: 18px;
+    font-size: 13px;
 }
 
 .custom-main-card-body-tip {
@@ -82,4 +86,15 @@ main {
 
 .custom-search-buttom {
     border-radius: 8px;
+    margin: 0 5px;
+}
+
+/** Modal Settings **/
+.custom-title, label {
+    color: #244278;
+}
+
+.customer-main-text-border {
+    border-bottom: 3.5px solid #4fbff1;
+    text-decoration: none;
 }
