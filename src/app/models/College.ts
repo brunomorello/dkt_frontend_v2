@@ -5,6 +5,6 @@ export class College {
     urlLogo: string;
     ies: string;
     urlBase: string;
-    silga: string;
+    sigla: string;
     
 }
