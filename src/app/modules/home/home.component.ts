@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { NgForm } from "@angular/forms";
 import { CourseService } from "../../services/course.service";
 import { CourseSpecializationService } from "../../services/course-specialization.service";
@@ -45,7 +46,12 @@ export class HomeComponent implements OnInit {
     // Error Message
     errorMessage: string;
 
-    constructor(private courseService: CourseService, private courseSpecService: CourseSpecializationService, private mailService: SendGridMailAPIService) { }
+    constructor(
+        private courseService: CourseService, 
+        private courseSpecService: CourseSpecializationService, 
+        private mailService: SendGridMailAPIService,
+        private router: Router
+    ) { }
 
     ngOnInit() {
         
@@ -100,35 +106,37 @@ export class HomeComponent implements OnInit {
         }
 
         // controls to display DOM Elements
-        this.displaySearch = true;
-        this.displayDefaultHome = false;
-        this.displayHeaderMenuItens = false;
+        // this.displaySearch = true;
+        // this.displayDefaultHome = false;
+        // this.displayHeaderMenuItens = false;
 
         // storing course and course specialization
         let mainCouseAux = this.courseList.find(element => element.id == this.menuSearchOptions.mainCourse);
         let courseSpecializationAux = this.specializationListDump.find(element => element.id == this.menuSearchOptions.courseSpecialization);
 
-        let searchCouseObj = {
-            'pesquisa': {
-                'atuacao': mainCouseAux.nome,
-                'mba': this.menuSearchOptions.mba,
-                'pos': this.menuSearchOptions.postGraduation,
-                'especializacao': courseSpecializationAux.nome,
-                'modalidade': [],
-                'pagina': ''
-            }
-        }
+        let modalidade = [];
         
         if (this.menuSearchOptions.onSite) {
-            searchCouseObj.pesquisa.modalidade.push(1);
+            modalidade.push(1);
         }
 
         if (this.menuSearchOptions.semiOnSite) {
-            searchCouseObj.pesquisa.modalidade.push(2);
+            modalidade.push(2);
         }
 
-        this.courseService.searchCourse(searchCouseObj)
-            .subscribe(response => this.searchCouseResult = response);
+        let queryParams = {
+            'atuacao': mainCouseAux.nome,
+            'mba': this.menuSearchOptions.mba,
+            'pos': this.menuSearchOptions.postGraduation,
+            'especializacao': courseSpecializationAux.nome,
+            'modalidade': modalidade,
+            'pagina': ''
+        }
+
+        this.router.navigate(['/courseSearch'], { queryParams });
+        
+        // this.courseService.searchCourse(searchCouseObj)
+        //     .subscribe(response => this.searchCouseResult = response);
         
     }
 
