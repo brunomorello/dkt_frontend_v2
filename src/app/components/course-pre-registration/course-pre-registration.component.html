@@ -1,0 +1,78 @@
+<div class="alert alert-dismissible fade show" id="customer-form-email-alert" style="display: none;" role="alert">
+  {{ errorMessage }}
+</div>
+
+<div class="modal fade" id="course-pre-registration-modal" tabindex="-1" role="dialog" aria-labelledby="registrationForm" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title custom-title" id="registrationForm">
+          <u class="customer-main-text-border">Tem int</u>eresse? <br/><br/> Vamos entrar em contato com você!
+        </h5>
+
+        <button class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <form #coursePreRegistration="ngForm" (ngSubmit)="sendRegistration(coursePreRegistration)" class="needs-validation">
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="col-sm">
+              <label for="customer-name">
+                Nome Completo *
+              </label>
+              <input 
+                [(ngModel)]="customer.name"
+                (input)="checkChanges('customer-name')"
+                type="text" name="customer-name" id="customer-name"
+                placeholder="Digite seu Nome Completo"
+                class="form-control is-invalid" rerquired>
+
+              <div class="invalid-feedback">
+                Por favor preencha seu nome.
+              </div>
+            </div>
+
+            <div class="col-sm">
+              <label for="customer-email">
+                E-mail *
+              </label>
+              <input 
+                [(ngModel)]="customer.email"
+                (input)="checkChanges('customer-email')"
+                type="email" name="customer-email" id="customer-email"
+                placeholder="Digite seu e-mail"
+                class="form-control is-invalid" rerquired>
+
+              <div class="invalid-feedback">
+                Por favor preencha seu e-mail.
+              </div>
+            </div>
+
+            <div class="col-sm">
+              <label for="customer-phone">
+                Telefone
+              </label>
+              <input 
+                [(ngModel)]="customer.phone"
+                (input)="checkChanges('customer-phone')"
+                type="text" name="customer-phone" id="customer-phone"
+                placeholder="Digite seu Nome Completo"
+                class="form-control is-invalid" rerquired>
+
+              <div class="invalid-feedback">
+                Por favor preencha seu telefone.
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary btn-sn mx-auto">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
