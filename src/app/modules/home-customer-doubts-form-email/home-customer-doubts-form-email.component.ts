@@ -36,6 +36,11 @@ export class HomeCustomerDoubtsFormEmailComponent {
       domElement.addClass('is-valid');
     }
 
+    if (domElement.val() == "") {
+      domElement.removeClass('is-valid');
+      domElement.addClass('is-invalid');
+    }
+
   }
 
   sendForm(customerDoubtsForm: NgForm) {
@@ -122,11 +127,6 @@ export class HomeCustomerDoubtsFormEmailComponent {
     });
 
 
-  }
-
-  //TODO
-  removeValidations() {
-    
   }
 
 }
