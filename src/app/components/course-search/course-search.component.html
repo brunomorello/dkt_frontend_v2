@@ -86,11 +86,11 @@
             </div>
             
             <div class="col" *ngIf="courseResult.duracao > 1">
-              {{courseResult.periodo}} Meses
+              {{courseResult.duracao}} Meses
             </div>
 
             <div class="col" *ngIf="courseResult.duracao == 1">
-              {{courseResult.periodo}} Mês
+              {{courseResult.duracao}} Mês
             </div>
           </div>
 
@@ -184,7 +184,7 @@
                 [(ngModel)]="customer.phone"
                 (input)="checkChanges('customer-phone')"
                 type="text" name="customer-phone" id="customer-phone"
-                placeholder="Digite seu Nome Completo"
+                placeholder="Digite seu Telefone"
                 class="form-control is-invalid" rerquired>
 
               <div class="invalid-feedback">
