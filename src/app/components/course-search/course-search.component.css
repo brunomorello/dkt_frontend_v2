@@ -11,6 +11,10 @@ section {
     text-decoration: none;
 }
 
+.card {
+    word-wrap: unset;
+}
+
 .card-body {
     font-size: 11px;
     padding: 0;
@@ -97,4 +101,18 @@ section {
 .customer-main-text-border {
     border-bottom: 3.5px solid #4fbff1;
     text-decoration: none;
+}
+
+/** Adjustments for Desktop **/
+@media (min-device-width: 1000px) { 
+
+    .card {
+        min-width: 20rem;
+        max-width: 20rem;
+    }
+
+    section > .m-1 {
+        margin: 1rem !important;
+    }
+
 }
