@@ -39,7 +39,7 @@ export class CourseService {
         return this.http.get(`${this.endpoint}/curso/listarPorId/${courseId}`)
             .pipe(
                 map((courseApiResponse: any) => {
-                    console.log(courseApiResponse);
+                    // console.log(courseApiResponse);
                     
                     return new CourseSearchResponse({
                         id: courseApiResponse.msg[0].id,
