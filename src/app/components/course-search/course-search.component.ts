@@ -2,8 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
 import { CourseService } from "src/app/services/course.service";
+import { CourseSpecializationService } from "../../services/course-specialization.service";
 import { CourseSearchResponse } from 'src/app/models/CourseSearchResponse';
 import { SendGridMailAPIService } from "../../services/send-grid-mail-api.service";
+import { Course } from "../../models/Course";
+import { Specialization } from "../../models/Specialization";
 
 @Component({
   selector: 'direkte-course-search',
@@ -16,8 +19,11 @@ export class CourseSearchComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private courseService: CourseService,
+    private courseSpecService: CourseSpecializationService,
     private mailService: SendGridMailAPIService
   ) { }
+
+  displayHeaderMenuItens = false;
 
   searchParams;
 
@@ -25,12 +31,28 @@ export class CourseSearchComponent implements OnInit {
 
   errorMessage: string;
 
+  // Customer Pre-registration form
   customer = {
     name: '',
     email: '',
     phone: '',
     course: ''
   };
+
+  // Menu Search JSON using two-way data binding
+  menuSearchOptions = {
+      postGraduation: true,
+      mba: true,
+      mainCourse: '0',
+      courseSpecialization: '0',
+      onSite: true,
+      semiOnSite: true,
+      onlineCourse: false
+  };
+
+  courseList: Course[];
+  specializationList: Specialization[];
+  specializationListDump: Specialization[];
 
   ngOnInit() {
     this.route.queryParams
@@ -64,37 +86,46 @@ export class CourseSearchComponent implements OnInit {
       let searchCouseObj = {
         'pesquisa': this.searchParams
       };
+      
+      this.performSearch(searchCouseObj, false);
 
-      this.courseService.searchCourse(searchCouseObj)
-        .subscribe(resp => {
-          console.log(resp);
-          resp.msg.forEach(course => this.searchCouseResult.push(course));          
-        },
-        error => {
-          console.log(error);
-        });
     }
     // hide navigation
     $('.nav-link').hide();
 
+    this.courseService.getCourseList()
+        .subscribe(response => this.courseList = response.msg);
+
+    this.courseSpecService.getSpecializationList()
+        .subscribe(response => this.specializationListDump = response.msg);
+
+  }
+
+  loadSpecialization(event) {
+    //cleanup specializationList array
+    this.specializationList = [];
+
+    // Sets an invalid option to initialize select element
+    this.menuSearchOptions.courseSpecialization = "0";
+
+    this.specializationListDump.forEach(spec => {
+        if(spec.id_atuacao == event.target.value)  
+            this.specializationList.push(spec);
+    });
   }
 
   checkChanges(element) {
 
     let domElement = $(`#${element}`);
 
-    if (domElement.val() != "" || domElement.val() != "0") {
-      
+    if (domElement.val() != "" || domElement.val() != "0") {    
       domElement.removeClass('is-invalid');
       domElement.addClass('is-valid');
-
     } 
     
     if(domElement.val() == "") {
-      
       domElement.removeClass('is-valid');
       domElement.addClass('is-invalid');
-
     }
 
   }
@@ -171,6 +202,74 @@ export class CourseSearchComponent implements OnInit {
       this.errorMessage = "";
     }, 2000);
 
-  }  
+  }
+
+  performSearch(searchObject, modalSearch) {
+
+    // console.log(searchObject);
+    // console.log(this.menuSearchOptions);
+
+    // control for modal search to check required inputs inserted by user
+    if(modalSearch) {
+      if(this.menuSearchOptions.mainCourse == "0" || this.menuSearchOptions.courseSpecialization == "0") {
+        this.errorMessage = "Por favor, escolha uma Área de Atuação e uma Especialização!";      
+      }
+  
+      if(this.menuSearchOptions.mba == false && this.menuSearchOptions.postGraduation == false) {
+        this.errorMessage = "Por favor, escolha a opção MBA ou Pós-Graduação!";      
+      }
+  
+      if(this.menuSearchOptions.onSite == false && this.menuSearchOptions.semiOnSite == false) {
+        this.errorMessage = "Por favor, escolha uma modalidade (Presencial ou À Distância)";      
+      }
+  
+      if(this.errorMessage) {
+        $("#alert-search-course-modal").addClass('alert-danger').show();
+        setTimeout(() => {
+          $("#alert-search-course-modal").removeClass('alert-danger').hide();
+          this.errorMessage = null;
+        }, 2000);
+        return;
+      }
+    }
+
+    this.searchCouseResult = [];
+    
+    if(!searchObject) {
+
+      let courseSearchId = this.courseList.find(element => element.id == this.menuSearchOptions.mainCourse);
+      let specSearchId = this.specializationListDump.find(element => element.id == this.menuSearchOptions.courseSpecialization);
+
+      searchObject = {
+        pesquisa: {
+          atuacao: courseSearchId.nome,
+          especializacao: specSearchId.nome,
+          mba: this.menuSearchOptions.mba,
+          pos: this.menuSearchOptions.postGraduation,
+          modalidade: [],
+          pagina: ''
+        }
+      };
+      
+      if (this.menuSearchOptions.onSite) {
+        searchObject.pesquisa.modalidade.push(1);
+      }
+      if (this.menuSearchOptions.semiOnSite) {
+        searchObject.pesquisa.modalidade.push(2);
+      }
+    }
+
+    this.courseService.searchCourse(searchObject)
+        .subscribe(resp => {
+          console.log(resp);
+          resp.msg.forEach(course => this.searchCouseResult.push(course));
+          
+          $("#course-search-modal").modal("hide");
+          
+        },
+        error => {
+          console.log(error);
+        });
+  }
 
 }
