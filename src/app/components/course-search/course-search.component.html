@@ -29,7 +29,7 @@
 
   <!-- Display Values only if search returned results -->
   <div class="row mt-1" *ngIf="searchCouseResult.length > 0">
-  
+
     <!-- Iterate through result list -->
     <div class="col-sm" *ngFor="let courseResult of searchCouseResult">
       <div class="card shadow p-3 mb-3 bg-white rounded">
@@ -42,7 +42,7 @@
 
           <div class="row mt-3">
             <div class="col-4 custom-main-card-body-title">
-              Faculdade:
+              Faculdade
             </div>
             
             <div class="col">
@@ -52,7 +52,7 @@
 
           <div class="row mt-3">
             <div class="col-4 custom-main-card-body-title">
-              Curso:
+              Curso
             </div>
             
             <div class="col">
@@ -62,7 +62,7 @@
   
           <div class="row mt-3">
             <div class="col-4 custom-main-card-body-title">
-              Modalidade:
+              Modalidade
             </div>
             
             <div class="col">
@@ -72,7 +72,7 @@
 
           <div class="row mt-3">
             <div class="col-4 custom-main-card-body-title">
-              Período:
+              Período
             </div>
             
             <div class="col">
@@ -82,7 +82,7 @@
 
           <div class="row mt-3">
             <div class="col-4 custom-main-card-body-title">
-              Duração:
+              Duração
             </div>
             
             <div class="col" *ngIf="courseResult.duracao > 1">
@@ -96,7 +96,7 @@
 
           <div class="row mt-3">
             <div class="col-4 custom-main-card-body-title">
-              Investimento Mensal:
+              Investimento Mensal
             </div>
             
             <div class="col">
@@ -204,7 +204,6 @@
 </div>
 
 <!-- Modal - New Search -->
-
 <div class="modal fade" id="course-search-modal" tabindex="-1" role="dialog" aria-labelledby="registrationForm" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -218,9 +217,81 @@
         </button>
       </div>
 
-      <form #coursePreRegistration="ngForm" (ngSubmit)="sendRegistration(coursePreRegistration)" class="needs-validation">
-        <div class="modal-body">
+      <form #coursePreRegistration="ngForm" (ngSubmit)="performSearch(null,true)" class="needs-validation">
+        <div class="modal-body">    
           
+          <div class="alert alert-danger alert-dismissible fade show" name="custom-alert" id="alert-search-course-modal" style="display: none;" role="alert">
+            {{ errorMessage }}
+          </div>
+
+          <div class="form-row">
+            <div class="col">
+              <p class="text-left custom-title">
+                Tipo de Curso
+              </p>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col">
+              <input [(ngModel)]="menuSearchOptions.postGraduation" type="checkbox" name="checkbox-post-graduation-modal" id="checkbox-post-graduation-modal" checked>
+              <label for="checkbox-post-graduation-modal" class="ml-1">Pós-graduação</label>
+
+              <input [(ngModel)]="menuSearchOptions.mba" type="checkbox" name="checkbox-mba-modal" id="checkbox-mba-modal" class="ml-3" checked>
+              <label for="checkbox-mba-modal" class="ml-1">MBA</label>              
+            </div>            
+          </div>
+
+          <hr>
+
+          <div class="form-row">
+            <label for="select-course-area-modal">
+              Área de Atuação
+            </label>
+            <select
+              [(ngModel)]="menuSearchOptions.mainCourse"
+              (change)="loadSpecialization($event)"
+              name="select-course-area-modal" id="select-course-area-modal" 
+              class="form-control custom-select"              
+            >
+              <option value="0" selected disabled>Selecione</option>
+              <option *ngFor="let course of courseList" value="{{course.id}}">{{course.nome}}</option>
+            </select>
+          </div>
+
+          <div class="form-row mt-1">
+            <label for="select-specialization-area-modal mt-1">
+              Especialização
+            </label>
+            <select
+              [(ngModel)]="menuSearchOptions.courseSpecialization"
+              name="select-specialization-area-modal" id="select-specialization-area-modal" 
+              class="form-control custom-select"              
+            >  
+              <option value="0" selected disabled>Selecione</option>
+              <option *ngFor="let spec of specializationList" value="{{spec.id}}">{{spec.nome}}</option>
+            </select>
+          </div>
+
+          <hr>
+
+          <div class="form-row">
+            <div class="col">
+              <p class="text-left custom-title">
+                Modalidade
+              </p>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col">
+              <input [(ngModel)]="menuSearchOptions.onSite" type="checkbox" name="checkbox-on-site-course-modal" id="checkbox-on-site-course-modal" checked>
+              <label for="checkbox-on-site-course-modal" class="ml-1">Presencial</label>
+  
+              <input [(ngModel)]="menuSearchOptions.semiOnSite" type="checkbox" name="checkbox-semi-on-site-course-modal" id="checkbox-semi-on-site-course-modal" class="ml-3" checked>
+              <label for="checkbox-semi-on-site-course-modal" class="ml-1">À Distância</label>
+            </div>
+          </div>
         </div>
 
         <div class="modal-footer">
