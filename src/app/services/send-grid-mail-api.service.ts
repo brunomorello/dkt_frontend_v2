@@ -9,7 +9,7 @@ export class SendGridMailAPIService {
 
   constructor(private http: HttpClient) { }
 
-  private url = "http://www.direkte.com.br:10009/mail/sendMail";
+  private url = "https://www.direkte.com.br:10009/mail/sendMail";
 
   sendMail(message: any): Observable<any> {
     return this.http.post(this.url, message);

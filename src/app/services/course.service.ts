@@ -5,7 +5,6 @@ import { map } from "rxjs/operators";
 import { CourseApiResponse } from '../models/CourseApiResponse';
 import { CourseSearchApiResponse } from '../models/CourseSearchApiResponse';
 import { CourseSearchResponse } from '../models/CourseSearchResponse';
-import { CourseSearchByNameApiResponse } from '../models/CourseSearchByNameApiResponse';
 
 @Injectable({
     providedIn: 'root'
@@ -14,7 +13,7 @@ export class CourseService {
 
     constructor(private http: HttpClient) { }
 
-    private endpoint = "http://direkte.com.br:10009";
+    private endpoint = "https://direkte.com.br:10009";
 
     private httpHeaders = {
         headers: new HttpHeaders({
