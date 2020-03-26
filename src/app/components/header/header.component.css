@@ -60,7 +60,9 @@ header img {
     border-radius: 8px;
     margin: 0 5px;
     background-color: #781e64;
-    border-color: #541647;
+    /* border-color: #541647; */
+    border-color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Small devices (landscape phones, 576px and up) */
