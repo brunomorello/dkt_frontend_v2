@@ -3,6 +3,12 @@
 }
 
 .customer-main-text-border {
-    border-bottom: 3.5px solid #4fbff1;
+    border-bottom: 3px solid #4fbff1;
     text-decoration: none;
+}
+
+@media (max-width: 860px) { 
+    label {
+        font-size: 0.8rem;
+    }
 }
