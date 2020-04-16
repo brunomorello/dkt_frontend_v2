@@ -10,7 +10,7 @@ export class CourseSpecializationService {
 
   constructor(private http: HttpClient) { }
 
-  private endpoint = "https://direkte.com.br:10009";
+  private endpoint = "https://www.direkte.com.br:10009";
 
   getSpecializationList(): Observable<CourseSpecApiResponse> {
     return this.http.get<CourseSpecApiResponse>(`${this.endpoint}/especializacao/listarTodos`);

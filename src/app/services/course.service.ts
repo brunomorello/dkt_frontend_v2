@@ -13,7 +13,7 @@ export class CourseService {
 
     constructor(private http: HttpClient) { }
 
-    private endpoint = "https://direkte.com.br:10009";
+    private endpoint = "https://www.direkte.com.br:10009";
 
     private httpHeaders = {
         headers: new HttpHeaders({
