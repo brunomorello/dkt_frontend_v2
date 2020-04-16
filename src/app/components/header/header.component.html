@@ -1,4 +1,4 @@
-<div id="promo">
+<!-- <div id="promo">
   <div class="container">
     <div class="px-auto">
       <i class="material-icons" style="font-size: 24px;">
@@ -13,10 +13,10 @@
       </button>
     </div>
   </div>
-</div>
+</div> -->
 
 <header>
-  <nav class="navbar navbar-expand-sm px-5">
+  <nav class="navbar navbar-expand-sm px-3">
     <a (click)="goToHome()" class="navbar-brand px-md-1">
       <img src="../../../assets/img/layout/direkte_logo c2 01.png" alt="direkte logo" class="dkt-header-img">
     </a>
@@ -29,28 +29,23 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <ul class="navbar-nav">
 
-        <li class="nav-item ml-3 mr-3">
+        <li class="nav-item m-2">
           <a class="nav-link custom-navbar-menu-item" href="#custom-main-search-menu">Buscar Cursos</a>
         </li>
 
-        <li class="nav-item ml-3 mr-3">
+        <li class="nav-item m-2">
           <a class="nav-link custom-navbar-menu-item" href="#custom-next-step">Nossa Missão</a>
         </li>
 
-        <li class="nav-item ml-3 mr-3">
-          <a class="nav-link custom-navbar-menu-item" href="#custom-customer-doubts">Me Ajude a Encontrar um Curso</a>
+        <li class="nav-item m-2">
+          <a class="nav-link custom-navbar-menu-item" href="#" data-toggle="modal" data-target="#customer-form-email">Me Ajude a Encontrar um Curso</a>
         </li>
       </ul>
-
-      
-      <a href="mailto:contato@direkte.com.br" class="custom-navbar-contact-buttom">
-        <span class="custom-navbar-contact-buttom-content">
-          contato@direkte.com.br
-        </span>
-      </a>
 
     </div>  
   </nav>
 </header>
+
+<app-home-customer-doubts-form-email></app-home-customer-doubts-form-email>

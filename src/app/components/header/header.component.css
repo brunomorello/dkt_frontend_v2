@@ -1,5 +1,5 @@
 header {
-    background: #1a4680;
+    background: rgba(8,52,100);
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
     /* border-width: 7px;
@@ -18,7 +18,7 @@ header img {
 }
 
 .dkt-header-img {
-    margin: 7px 22px;
+    margin: 5px 11px;
 }
 
 .custom-navbar-collapse-icon {
@@ -27,7 +27,7 @@ header img {
 
 .custom-navbar-menu-item {
     color: #ffffff;
-    font-size: 15px;
+    font-size: 13.5px;
 }
 
 .custom-navbar-contact-buttom {
@@ -63,6 +63,12 @@ header img {
     /* border-color: #541647; */
     border-color: #ffffff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@media (max-width: 850px) {
+    .custom-navbar-menu-item {
+        font-size: 11px;
+    }
 }
 
 /* Small devices (landscape phones, 576px and up) */
