@@ -63,6 +63,18 @@ export class CoursePreRegistrationComponent implements OnInit {
       }
     });
 
+    if($('#customer-email').val().toString().indexOf('@') < 1) {
+      $('#customer-email').removeClass('is-valid');
+      $('#customer-email').addClass('is-invalid');
+      invalidField = true;
+    }
+
+    if($('#customer-phone').val().toString().length != 11 ) {
+      $('#customer-phone').removeClass('is-valid');
+      $('#customer-phone').addClass('is-invalid');
+      invalidField = true;
+    }
+
     if(invalidField) return;
 
     let msg = {
@@ -107,6 +119,10 @@ export class CoursePreRegistrationComponent implements OnInit {
     
     setTimeout(() => {
       $('#customer-form-email-alert').hide()
+      domElementList.forEach(element => {
+        element.removeClass('is-valid');
+        invalidField = true;        
+      });
       this.errorMessage = "";
     }, 2000);
 
