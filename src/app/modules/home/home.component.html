@@ -2,7 +2,7 @@
 <main *ngIf="displayDefaultHome">
     <div class="custom-main-search-menu">
     <div class="custom-main-search-menu-bckg-img">
-        <div class="container-sm pt-3">
+        <div class="container pt-5">
         <section id="custom-main-search-menu">
 
             <div class="alert alert-danger alert-dismissible fade show" name="custom-alert" style="display: none;" role="alert">
@@ -15,19 +15,32 @@
             </h1>
             
             <p class="mt-4 custom-main-text-sm">
-                Compare e Escolha sua Pós ou MBA
+                Terminou sua graduação? Quer se especializar? <br/>
+                Compare e Escolha sua <b>Pós</b> ou <b>MBA</b>
             </p>
             </div>
         
-            <div class="custom-main-search-card-position pt-3 px-5 mt-5">
+            <div class="custom-main-search-card-position mt-5">
             <div class="card">
                 <form 
                     #menuSearchOptionsForm="ngForm"
                     (ngSubmit)="performSearch(menuSearchOptionsForm)"
-                    class="text-body pt-3 px-5">
-                <div class="card-body">
-                    <div class="form-group">
-            
+                    class="text-body">
+                <div class="card-body">                    
+
+                    <!-- <ul class="nav nav-tabs" id="search-by-course-type" role="tablist">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active" id="search-course-post-graduation" data-toggle="tab" role="tab" aria-selected="true">
+                                Pós Graduação
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" id="search-course-mba" data-toggle="tab" role="tab" aria-selected="false">
+                                MBA
+                            </a>
+                        </li>
+                    </ul> -->
                     <div class="form-check form-check-inline">
                         <h4 class="card-title" id="custom-card-title-mobile">
                             <b>O que você está procurando?</b>
@@ -58,117 +71,93 @@
                                 MBA
                             </label>
                         </div>
-                    </div>
+                    </div>                    
             
-                    <hr class="custom-main-search-hr">
+                    <div class="mx-auto">
+                        <div class="form-row mt-3">
+                            <div class="form-group col-sm-5">
+                                <label for="course-area-select" class="custom-main-search-label">Escolha uma área de atuação </label>
+                                <!-- <small class="form-text form-check-inline text-muted ml-1">(ex: Administração)</small> -->
             
-                    <div class="form-row">
-                        <div class="form-group col-sm-5">
-                            <label for="course-area-select" class="custom-main-search-label">Escolha uma área de atuação </label>
-                            <small class="form-text form-check-inline text-muted ml-1">(ex: Administração)</small>
-        
-                            <select
-                                [(ngModel)]="menuSearchOptions.mainCourse"
-                                (change)="loadSpecialization($event)"
-                                name="course-area-select" id="course-area-select" 
-                                class="form-control custom-select"
-                                [ngClass]="{ 'custom-focus-select-box': courseListBoxFocus}"
-                                >
-                                
-                                <option value="0" selected disabled>Selecione</option>
-                                <option *ngFor="let course of courseList" value="{{course.id}}">{{course.nome}}</option>
-
-                            </select>
-                        </div>
-
-                        <div class="col-sm"></div>
-            
-                        <div class="form-group col-sm-5">
-                            <label for="course-specialization-select" class="custom-main-search-label">Escolha uma especialização </label>
-                            <small class="form-text form-check-inline text-muted ml-1">(ex: Gestão Financeira)</small>
-        
-                            <select 
-                                [(ngModel)]="menuSearchOptions.courseSpecialization"
-                                (change)="removeFocusBox('spec')"
-                                name="course-specialization-select" id="course-specialization-select" 
-                                class="form-control custom-select"
-                                [ngClass]="{ 'custom-focus-select-box': specListBoxFocus}">
-                                
-                                <option value="0" selected disabled>Selecione</option>
-                                <option *ngFor="let spec of specializationList" value="{{spec.id}}">{{spec.nome}}</option>
-                            </select>
-                        </div>
-                    </div>
-            
-                    <div class="form-row mt-1">
-                        <div class="form-group col-sm-5 mx-auto">
-            
-                            <div class="form-row">
-                                <div class="form-col mx-auto">
-                                    <label class="custom-main-search-label">Escolha uma modalidade</label>
-                                </div>
+                                <select
+                                    [(ngModel)]="menuSearchOptions.mainCourse"
+                                    (change)="loadSpecialization($event)"
+                                    name="course-area-select" id="course-area-select" 
+                                    class="form-control custom-select"
+                                    [ngClass]="{ 'custom-focus-select-box': courseListBoxFocus}"
+                                    >
+                                    
+                                    <option value="0" selected disabled>Selecione</option>
+                                    <option *ngFor="let course of courseList" value="{{course.id}}">{{course.nome}}</option>
+    
+                                </select>
                             </div>
-
-                            <div class="form-row">
-                                <div class="form-col mx-auto">
-                                    <div class="form-check form-check-inline">
-                                        <input 
-                                            [(ngModel)]="menuSearchOptions.onSite"
-                                            type="checkbox" 
-                                            class="form-check-input" 
-                                            id="course-on-site-checkbox" name="course-on-site-checkbox">
-                                        <label for="course-on-site-checkbox" class="form-check-label">
+    
+                            <div class="col-sm-1"></div>
+                
+                            <div class="form-group col-sm-5 ml-1">
+                                <label for="course-specialization-select" class="custom-main-search-label">Escolha uma especialização </label>
+                                <!-- <small class="form-text form-check-inline text-muted ml-1">(ex: Gestão Financeira)</small> -->
+            
+                                <select 
+                                    [(ngModel)]="menuSearchOptions.courseSpecialization"
+                                    (change)="removeFocusBox('spec')"
+                                    name="course-specialization-select" id="course-specialization-select" 
+                                    class="form-control custom-select"
+                                    [ngClass]="{ 'custom-focus-select-box': specListBoxFocus}">
+                                    
+                                    <option value="0" selected disabled>Selecione</option>
+                                    <option *ngFor="let spec of specializationList" value="{{spec.id}}">{{spec.nome}}</option>
+                                </select>
+                            </div>
+                            
+                        </div>
+                
+                        <div class="form-row mt-3">
+                            <div class="col-sm-1 my-auto">
+                                <label class="custom-main-search-label">Modalidade</label>                            
+                            </div>
+                            
+                            <div class="col-sm-5 mx-auto">
+                                <div class="form-check form-check-inline">
+                                    <input 
+                                        [(ngModel)]="menuSearchOptions.onSite"
+                                        type="checkbox" 
+                                        class="form-check-input" 
+                                        id="course-on-site-checkbox" name="course-on-site-checkbox">
+                                    <label for="course-on-site-checkbox" class="form-check-label">
                                         Presencial
-                                        </label>
-                                    </div>
+                                    </label>
                                 </div>
-                    
-                                <div class="form-col mx-auto">
-                                    <div class="form-check form-check-inline">
-                                        <input 
-                                            [(ngModel)]="menuSearchOptions.semiOnSite"
-                                            type="checkbox" 
-                                            class="form-check-input" 
-                                            id="course-semi-on-site-checkbox" name="course-semi-on-site-checkbox">
-                                        <label for="course-semi-on-site-checkbox" class="form-check-label">
-                                            À Distância
-                                        </label>
-                                    </div>
-                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input 
+                                        [(ngModel)]="menuSearchOptions.semiOnSite"
+                                        type="checkbox" 
+                                        class="form-check-input" 
+                                        id="course-semi-on-site-checkbox" name="course-semi-on-site-checkbox">
+                                    <label for="course-semi-on-site-checkbox" class="form-check-label">
+                                        À Distância
+                                    </label>
+                                </div>                            
                             </div>
-            
-                            <!-- To be implemented - pending adjustments on backend -->
-                            <!-- <div class="form-check form-check-inline ml-3"> 
-                                <input 
-                                    [(ngModel)]="menuSearchOptions.onlineCourse"
-                                    type="checkbox" 
-                                    class="form-check-input"
-                                    id="course-online-checkbox" name="course-online-checkbox">
-                                <label for="course-online-checkbox" class="form-check-label">
-                                À distância
-                                </label>
-                            </div> -->
-            
+    
+                            <div class="col-sm-3 mx-auto">
+                                <button class="btn btn-primary btn-md" type="submit">Pesquisar</button>
+                            </div>
+                                
+                
+                                <!-- TODO - BACKEND PENDING AN API TO PERFORM A SEARCH USING PRICE RANGE
+                                <div class="form-group col-md-5 ml-5">
+                                <label for="course-price-range" class="custom-main-search-label">Quanto você gostaria de pagar no seu curso?</label>
+                                <input type="range" name="course-price-range" id="course-price-range" data-slider-min="1000" data-slider-max="5000" data-slider-step="100" data-slider-value="2000">
+    
+                                <p class="custom-price-range-label text-center">
+                                    Até R$ 5000/mês
+                                </p>
+                                </div> -->
                         </div>
-            
-                            <!-- TODO - BACKEND PENDING AN API TO PERFORM A SEARCH USING PRICE RANGE
-                            <div class="form-group col-md-5 ml-5">
-                            <label for="course-price-range" class="custom-main-search-label">Quanto você gostaria de pagar no seu curso?</label>
-                            <input type="range" name="course-price-range" id="course-price-range" data-slider-min="1000" data-slider-max="5000" data-slider-step="100" data-slider-value="2000">
+                    </div>
 
-                            <p class="custom-price-range-label text-center">
-                                Até R$ 5000/mês
-                            </p>
-                            </div> -->
-                    </div>
-            
-                        <div class="form-row mt-1">
-                            <div class="form-col mx-auto">
-                                <button type="submit" class="btn btn-primary btn-md custom-primary-button">Pesquisar</button>
-                            </div>
-                        </div>
-            
-                    </div>
                 </div>
                 </form>
             </div>
@@ -179,155 +168,76 @@
     </div>
     </div>
 
-    <div class="custom-next-step">
-    <div class="container">
-        <section id="custom-next-step">
-        <div class="row h-100">
-            <div class="col my-auto px-3 hide-desktop">
-            <div class="custom-next-step-badge-item">
+    <div class="custom-next-step pt-5">
+        <div class="container">
+            <section id="custom-next-step">
                 <div class="row">
-                <div class="col-3">
-                    <img class="custom-next-step-badge-item-img" src="assets/img/layout/grupo_358.png" alt="image1">
-                </div>
-                <div class="col-9 my-auto">
-                    <div class="custom-next-step-badge-item-text">
-                    Busca rápida de cursos de MBA e pós-graduação, 100% grátis
+                    <div class="col-sm-6">
+
+                        <h3 class="custom-customer-doubts-title3">
+                            <u class="custom-main-text-border">Fique</u> por dentro!
+                        </h3>
+
+                        <div class="mt-md-5" id="twitter-timeline-direkte"></div>
+                        <a class="twitter-timeline" 
+                            href="https://twitter.com/direkte_br?ref_src=twsrc%5Etfw"
+                            data-height="400"
+                            data-width="700"
+                            data-chrome="nofooter">
+                            Tweets by direkte_br
+                        </a>
                     </div>
-                </div>
-                </div>
-            </div>
+                    <div class="col-sm-6">
 
-            <div class="custom-next-step-badge-item">
-                <div class="row">
-                <div class="col-3">
-                    <img class="custom-next-step-badge-item-img" src="assets/img/layout/grupo_359.png" alt="image2">
-                </div>
-                <div class="col-9 my-auto">
-                    <div class="custom-next-step-badge-item-text">
-                    Encontre a melhor opção para você e que cabe no seu bolso
-                    </div>
-                </div>
-                </div>
-            </div>
+                        <h3 class="custom-customer-doubts-title3">
+                            <u class="custom-main-text-border">Qual</u> seu próximo passo?
+                        </h3>
 
-            <div class="custom-next-step-badge-item">
-                <div class="row">
-                <div class="col-3">
-                    <img class="custom-next-step-badge-item-img" src="assets/img/layout/grupo_360.png" alt="image3">
-                </div>
-                <div class="col-9 my-auto">
-                    <div class="custom-next-step-badge-item-text">
-                    Fácil comparação de cursos, com as informações que você precisa em um só lugar
-                    </div>
-                </div>
-                </div>
-            </div>
-
-            </div>
-
-            <div class="col mt-3">
-                <h2 class="mb-3 mt-5 custom-customer-doubts-title"><u class="custom-main-text-border">Qual</u> seu próximo passo?</h2>
-                
-                <p class="custom-customer-doubts-paragraph mt-5">Buscando recolocação no mercado? Promoção no seu emprego atual? Melhorar sua qualificação? Mudança de carreira?
-                    Independente do que te motiva a continuar seus estudos, estamos aqui pra te ajudar a alcançar o que deseja.
-                </p>
-
-                <p class="custom-customer-doubts-paragraph mt-3">
-                    Somos uma plataforma de busca e comparação de cursos de pós-graduação e MBA na cidade de São Paulo. Consolidamos as
-                    informações dos cursos disponíveis para você comparar as opções (seja por custo, localização, instituição, etc.) e decidir qual
-                    é a melhor para você!
-                </p>
-            </div>
-
-            <div class="col my-auto px-3 hide-mobile">
-                <div class="custom-next-step-badge-item">
-                    <div class="row">
-                    <div class="col-3">
-                        <img class="custom-next-step-badge-item-img" src="assets/img/layout/grupo_358.png" alt="image1">
-                    </div>
-                    <div class="col-9 my-auto">
-                        <div class="custom-next-step-badge-item-text">
-                        Busca rápida de cursos de MBA e pós-graduação, 100% grátis
+                        <div class="mt-md-5">
+                            <div class="custom-next-step-badge-item">
+                                <div class="row">
+                                <div class="col-3">
+                                    <img class="custom-next-step-badge-item-img" src="assets/img/layout/grupo_358.png" alt="image1">
+                                </div>
+                                <div class="col-9 my-auto">
+                                    <div class="custom-next-step-badge-item-text">
+                                        Busca rápida de cursos de MBA e pós-graduação, 100% grátis
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                    
+                            <div class="custom-next-step-badge-item">
+                                <div class="row">
+                                <div class="col-3">
+                                    <img class="custom-next-step-badge-item-img" src="assets/img/layout/grupo_359.png" alt="image2">
+                                </div>
+                                <div class="col-9 my-auto">
+                                    <div class="custom-next-step-badge-item-text">
+                                    Encontre a melhor opção para você e que cabe no seu bolso
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                    
+                            <div class="custom-next-step-badge-item">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <img class="custom-next-step-badge-item-img" src="assets/img/layout/grupo_360.png" alt="image3">
+                                    </div>
+                                    <div class="col-9 my-auto">
+                                        <div class="custom-next-step-badge-item-text">
+                                        Fácil comparação de cursos, com as informações que você precisa em um só lugar
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
-                    </div>
-                </div>
-    
-                <div class="custom-next-step-badge-item">
-                    <div class="row">
-                    <div class="col-3">
-                        <img class="custom-next-step-badge-item-img" src="assets/img/layout/grupo_359.png" alt="image2">
-                    </div>
-                    <div class="col-9 my-auto">
-                        <div class="custom-next-step-badge-item-text">
-                        Encontre a melhor opção para você e que cabe no seu bolso
-                        </div>
-                    </div>
-                    </div>
-                </div>
-    
-                <div class="custom-next-step-badge-item">
-                    <div class="row">
-                    <div class="col-3">
-                        <img class="custom-next-step-badge-item-img" src="assets/img/layout/grupo_360.png" alt="image3">
-                    </div>
-                    <div class="col-9 my-auto">
-                        <div class="custom-next-step-badge-item-text">
-                        Fácil comparação de cursos, com as informações que você precisa em um só lugar
-                        </div>
-                    </div>
-                    </div>
-                </div>
-    
-            </div>
+                </div>        
+            </section>
         </div>
-        </section>
-    </div>
-    </div>
-    
-    <div class="custom-customer-doubts-bck">
-    <div class="container">
-        <section id="custom-customer-doubts">
-        <div class="row h-100">
-            <div class="col my-auto p-3">
-
-                <h2 class="mb-3 custom-customer-doubts-title">Está com dúvida sobre qual <br/><u class="custom-main-text-border">curs</u>o fazer?</h2>
-
-                <img src="assets/img/layout/grupo_176.png" alt="" id="custom-customer-doubts-image-mobile">
-        
-                <p class="my-5 custom-customer-doubts-bck-paragraph">A gente te ajuda!</p>
-                
-                <p class="custom-customer-doubts-bck-paragraph">
-                    É normal não ter certeza sobre qual curso escolher entre tantas áreas e opções.
-                    Por isso, nossa equipe
-                    está à disposição para entender melhor seu perfil e te ajudar nessa decisão.
-                </p>
-        
-                <p class="mt-5 pl-5 custom-customer-doubts-bck-paragraph hide-mobile">
-                    <button class="btn btn-primary btn-sm px-5 py-3 custom-app-general-button ml-3" data-toggle="modal" data-target="#customer-form-email">
-                    Fale com a gente
-                    </button>
-                </p>
-
-                <p class="mt-5 custom-customer-doubts-bck-paragraph hide-desktop">
-                    <button class="btn btn-primary btn-md px-5 py-3 custom-app-general-button" data-toggle="modal" data-target="#customer-form-email">
-                    Fale com a gente
-                    </button>
-                </p>
-
-            </div>
-
-            <app-home-customer-doubts-form-email></app-home-customer-doubts-form-email>
-
-            <div class="col ml-5 custom-customer-doubts-image-col">
-            <div class="py-5">
-                <img src="assets/img/layout/grupo_176.png" id="custom-customer-doubts-image" alt="image">
-            </div>
-            </div>
-        </div>
-
-        </section>
-    </div>
     </div>
     
     <div class="alert alert-dismissible fade show" id="newsletter-confirmation" style="display: none;" role="alert">

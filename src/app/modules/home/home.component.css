@@ -204,6 +204,19 @@ input[type=range]:focus::-ms-fill-upper {
     font-size: 15px;
 }
 
+.nav-tabs {
+    border-bottom: 1px solid #3082ed;
+}
+
+.nav-link {
+    color: #495057;
+}
+
+.nav-link.active {
+    border-color: #3082ed #3082ed #fff;
+    color: #3082ed;
+}
+
 .custom-main-search-card-position {
     position: absolute;
 }
@@ -216,9 +229,9 @@ input[type=range]:focus::-ms-fill-upper {
     box-shadow: 0 .5rem 1rem rgba(48,130,237) !important;
 }
 
-.custom-main-search-hr {
+/* .custom-main-search-hr {
     border-top: 1px solid #3082ed;
-}
+} */
 
 .card-title b {
     color: #244278;
@@ -245,41 +258,37 @@ small {
 
 .custom-primary-button {
     background-color: #3082ed;
-    padding: 10px 30px;
+    /* padding: 10px 30px; */
     text-decoration-style: solid;
 }
 
 .custom-next-step {
-    padding-top: 4%;
+    /* padding-top: 4%; */
     background-color: #f3f8fe;
-    padding-bottom: 3%;
+    /* padding-bottom: 3%; */
+    color: #244278;
 }
 
 .custom-next-step-content {
     background-color: #ffffff;
 }
 
-#custom-next-step {
-    color: #244278;
-}
-
 .custom-next-step-badge-item {
     background-color: #ffffff;
-    border-radius: 200px 50px 50px 200px;
+    border-radius: 200px;
     box-shadow: 5px 5px 10px #e5ebf6;
-    width: 500px;
-    margin: 30px;
+    margin: 15px;
 }
 
 .custom-next-step-badge-item-img {
-    height: 120px;
-    width: 120px;
+    height: 80px;
+    width: 80px;
 }
 
 .custom-next-step-badge-item-text {
     color: #1a4680;
-    font-size: medium;
-    padding-right: 10px;
+    font-size: 16px;
+    padding-right: 6px;
 }
 
 .custom-next-step-content {
@@ -407,6 +416,7 @@ small {
 
     .card-body > .form-group {
         text-align: left;
+        padding-top: 1rem;
     }
 
     .form-group > small {
@@ -415,6 +425,12 @@ small {
 
     .form-check > .form-check-inline > .float-right {
         float: none;
+    }
+
+    .col-sm-3 > .btn-primary {
+        margin-top: 5%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .custom-main-search-label-mobile {
@@ -428,8 +444,12 @@ small {
     }
 
     .custom-next-step {
-        padding-top: 100%;
+        padding-top: 75%;
         font-size: 13px;
+    }
+
+    #custom-next-step {
+        padding-top: 75%;
     }
 
     .custom-next-step-badge-item {
@@ -444,7 +464,7 @@ small {
     }
 
     .custom-next-step-badge-item-text {
-        font-size: 12px;
+        font-size: 10px;
     }
 
     .custom-customer-doubts-bck {
@@ -472,7 +492,7 @@ small {
 
     .custom-customer-doubts-title {
         margin-top: .25rem !important;
-        font-size: 25px;
+        font-size: 17px;
     }
 
     .custom-customer-doubts-paragraph {
