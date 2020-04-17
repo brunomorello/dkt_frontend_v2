@@ -1,7 +1,3 @@
-<div class="alert alert-dismissible fade show" id="customer-form-email-alert" style="display: none;" role="alert">
-  {{ errorMessage }}
-</div>
-
 <div class="modal fade" id="course-pre-registration-modal" tabindex="-1" role="dialog" aria-labelledby="registrationForm" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -27,13 +23,15 @@
                 (input)="checkChanges('customer-name')"
                 type="text" name="customer-name" id="customer-name"
                 placeholder="Digite seu Nome Completo"
-                class="form-control is-invalid" rerquired>
+                class="form-control" rerquired>
 
               <div class="invalid-feedback">
                 Por favor preencha seu nome.
               </div>
             </div>
+          </div>
 
+          <div class="form-row">
             <div class="col-sm">
               <label for="customer-email">
                 E-mail *
@@ -43,13 +41,15 @@
                 (input)="checkChanges('customer-email')"
                 type="email" name="customer-email" id="customer-email"
                 placeholder="Digite seu e-mail"
-                class="form-control is-invalid" rerquired>
+                class="form-control" rerquired>
 
               <div class="invalid-feedback">
-                Por favor preencha seu e-mail.
+                Por favor preencha um e-mail válido                
               </div>
             </div>
+          </div>
 
+          <div class="form-row">
             <div class="col-sm">
               <label for="customer-phone">
                 Telefone
@@ -58,14 +58,13 @@
                 [(ngModel)]="customer.phone"
                 (input)="checkChanges('customer-phone')"
                 type="text" name="customer-phone" id="customer-phone"
-                placeholder="Digite seu Nome Completo"
-                class="form-control is-invalid" rerquired>
-
+                placeholder="(DD) 99999-1111"
+                class="form-control" rerquired>
+  
               <div class="invalid-feedback">
-                Por favor preencha seu telefone.
+                Por favor preencha um telefone válido DD + telefone
               </div>
             </div>
-
           </div>
         </div>
 
