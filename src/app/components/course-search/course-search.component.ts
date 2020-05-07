@@ -61,11 +61,10 @@ export class CourseSearchComponent implements OnInit {
     if (this.searchParams.promo) {
       
       let promoCourseList = [
-        1810,	//UX Design & Strategy	43	FIAP
-        1811,	//Blockchain Development & Technologies	43	FIAP
-        1823,	//Tech-Driven Leadership	43	FIAP
-        1837,	//MBA em Artificial Intelligence	44	Impacta
-        1842 //	MBA em Gestão de TI e Negócios Digitais	44	Impacta
+        1922, // MBA Executivo Internacional em Finanças	1922	Saint Paul
+        1916, // Pós Graduação Gestão de Negócios de Software e Serviços Digitais	1916	FFIA
+        1915, // Pós Graduação Gestão de Cibersegurança e Riscos Tecnológicos 
+        8 // MBA Executivo Internacional em Liderança e Gestão      
       ];
 
       // change backend to receive course id
