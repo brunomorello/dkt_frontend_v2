@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgForm } from "@angular/forms";
 import { SendGridMailAPIService } from "../../services/send-grid-mail-api.service";
 
@@ -15,8 +15,15 @@ export class CoursePreRegistrationComponent implements OnInit {
     name: '',
     email: '',
     phone: '',
-    course: ''
+    course: '',
+    currentJob: '',
+    currentEmployeeCompany: '',
+    graduationCollege: '',
+    graduationYear: '',
+    lgpdConsentment: ''
   };
+
+  @Input() collegeId: string;
 
   errorMessage = "";
 
@@ -50,8 +57,10 @@ export class CoursePreRegistrationComponent implements OnInit {
     let domElementList = [
       $("#customer-name"),
       $("#customer-email"),
-      $("#customer-phone")
-    ];
+      // $("#customer-phone"),
+      $("#customer-current-job"),
+      $("#customer-current-employee-company")      
+    ];    
 
     let invalidField = false;
 
@@ -69,11 +78,18 @@ export class CoursePreRegistrationComponent implements OnInit {
       invalidField = true;
     }
 
-    if($('#customer-phone').val().toString().length != 11 ) {
-      $('#customer-phone').removeClass('is-valid');
-      $('#customer-phone').addClass('is-invalid');
+    // Getting Customer Consentment 
+    if($('#customer-lgpd-consentment').prop('checked') == false) {
+      $('#customer-lgpd-consentment').removeClass('is-valid');
+      $('#customer-lgpd-consentment').addClass('is-invalid');
       invalidField = true;
     }
+
+    // if($('#customer-phone').val().toString().length != 11 ) {
+    //   $('#customer-phone').removeClass('is-valid');
+    //   $('#customer-phone').addClass('is-invalid');
+    //   invalidField = true;
+    // }
 
     if(invalidField) return;
 
@@ -81,8 +97,12 @@ export class CoursePreRegistrationComponent implements OnInit {
       "text": `
         Nome: ${this.customer.name} \n
         E-mail: ${this.customer.email} \n
-        Contato: ${this.customer.phone} \n
-        Curso de Interesse: ${this.customer.course}
+        Cargo Atual (ou último): ${this.customer.currentJob} \n
+        Empresa Atual (ou última): ${this.customer.currentEmployeeCompany} \n
+        Faculdade: ${this.customer.graduationCollege} \n
+        Ano de Graduação: ${this.customer.graduationCollege} \n
+        Curso de Interesse: ${this.customer.course} \n\n
+        Consentimento do Cliente (LGDP): ${this.customer.lgpdConsentment}
       `
     };
 
@@ -108,7 +128,12 @@ export class CoursePreRegistrationComponent implements OnInit {
       name: '',
       email: '',
       phone: '',
-      course: ''
+      course: '',
+      currentJob: '',
+      currentEmployeeCompany: '',
+      graduationCollege: '',
+      graduationYear: '',
+      lgpdConsentment: ''
     };
 
     $("#customer-form-email-alert")
@@ -119,10 +144,15 @@ export class CoursePreRegistrationComponent implements OnInit {
     
     setTimeout(() => {
       $('#customer-form-email-alert').hide()
+      // remove is-valid class from required fields
       domElementList.forEach(element => {
         element.removeClass('is-valid');
         invalidField = true;        
       });
+      // remove is-valid class from unrequired fields
+      $("#customer-lgpd-consentment").removeClass('is-valid');
+      $("#customer-graduation-year").removeClass('is-valid');
+      $("#customer-graduation-college").removeClass('is-valid');
       this.errorMessage = "";
     }, 2000);
 

@@ -4,6 +4,9 @@
       <div class="modal-header">
         <h5 class="modal-title custom-title" id="registrationForm">
           <u class="customer-main-text-border">Tem int</u>eresse? <br/><br/> Vamos entrar em contato com você!
+          <p>
+            {{ collegeId }}
+          </p>
         </h5>
 
         <button class="close" data-dismiss="modal" aria-label="Close">
@@ -31,7 +34,7 @@
             </div>
           </div>
 
-          <div class="form-row">
+          <div class="form-row mt-1">
             <div class="col-sm">
               <label for="customer-email">
                 E-mail *
@@ -49,7 +52,92 @@
             </div>
           </div>
 
-          <div class="form-row">
+          <div class="form-row mt-1">
+            <div class="col-sm">
+              <label for="customer-current-job">
+                Cargo Atual (ou útlimo) *
+              </label>
+              <input 
+                [(ngModel)]="customer.currentJob"
+                (input)="checkChanges('customer-current-job')"
+                type="text" name="customer-current-job" id="customer-current-job"
+                placeholder="Cargo atual ou último"
+                class="form-control">
+
+              <div class="invalid-feedback">
+                Por favor preencha este campo
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row mt-1">
+            <div class="col-sm">
+              <label for="customer-current-employee-company">
+                Empresa Atual (ou útlima) *
+              </label>
+              <input 
+                [(ngModel)]="customer.currentEmployeeCompany"
+                (input)="checkChanges('customer-current-employee-company')"
+                type="text" name="customer-current-employee-company" id="customer-current-employee-company"
+                placeholder="Empresa atual ou última em que trabalhou"
+                class="form-control" rerquired>
+
+              <div class="invalid-feedback">
+                Por favor preencha este campo
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row mt-1">
+            <div class="col-sm">
+              <label for="customer-graduation-college">
+                Faculdade
+              </label>
+              <input 
+                [(ngModel)]="customer.graduationCollege"
+                (input)="checkChanges('customer-graduation-college')"
+                type="text" name="customer-graduation-college" id="customer-graduation-college"
+                placeholder="Nome de sua faculdade"
+                class="form-control">              
+            </div>
+          </div>
+
+          <div class="form-row mt-1">
+            <div class="col-sm">
+              <label for="customer-graduation-year">
+                Ano Graduação
+              </label>
+              <input 
+                [(ngModel)]="customer.graduationYear"
+                (input)="checkChanges('customer-graduation-year')"
+                type="number" name="customer-graduation-year" id="customer-graduation-year"
+                min="1970" max="2019"
+                class="form-control">              
+            </div>
+          </div>
+
+          <div class="form-row mt-3">
+            <div class="col-sm">
+              <div class="form-group">
+                <div class="form-check">
+                  <input 
+                    [(ngModel)]="customer.lgpdConsentment"
+                    type="checkbox" name="customer-lgpd-consentment" id="customer-lgpd-consentment" 
+                    value=""
+                    class="form-check-input" required>
+                  <label for="customer-lgpd-consentment" class="form-check-label ml-1 lgpd-checkbox-label">
+                    Autorizo o envio de meus dados à esta Universidade.
+                  </label>
+    
+                  <div class="invalid-feedback">
+                    <u>Você deve autorizar o envio dos dados para prosseguir.</u>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="form-row">
             <div class="col-sm">
               <label for="customer-phone">
                 Telefone
@@ -65,7 +153,7 @@
                 Por favor preencha um telefone válido DD + telefone
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
 
         <div class="modal-footer">
